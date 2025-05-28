@@ -149,13 +149,48 @@ const blogTab = document.querySelector('[data-page="blog"]');
 // Simpan data blog (bisa juga ambil dari HTML jika mau)
 const blogData = [
   {
-    title: "Membangun Web Pertamaku",
-    content: `<p>Semua orang punya “pertama kali”-nya. Dan untukku, momen itu datang ketika aku akhirnya memberanikan diri untuk bikin website pertamaku sendiri.</p> <p>Waktu itu, aku lagi iseng nonton YouTube dan nemu satu tutorial membuat website sederhana dengan HTML, CSS, dan sedikit JavaScript. Kelihatannya seru, jadi aku pikir: <i>“Kenapa nggak coba aja?”</i></p>`,
+    title: "Web Pertamaku",
+    content: `
+              <p>Semua orang punya “pertama kali”-nya. Dan untukku, momen itu datang ketika aku akhirnya memberanikan diri untuk bikin website pertamaku sendiri.</p> 
+          
+              <p>Waktu itu, aku lagi iseng nonton YouTube dan nemu satu tutorial membuat website sederhana dengan HTML dan CSS. Kelihatannya seru, jadi aku pikir: <i>“Kenapa nggak coba aja?”</i></p>
+
+              <p>Awalnya, aku nggak tahu harus mulai dari mana. Buka VS Code aja masih bingung harus ngetik apa. Tapi setelah ikutin step-by-step di tutorialnya, pelan-pelan mulai kebentuk: dari bikin struktur HTML-nya, kasih sentuhan gaya dengan CSS, sampai akhirnya coba bikin navigasi dan tombol yang bisa diklik pakai JavaScript.</p>
+
+              <p>
+              Tantangan terbesarnya? CSS! 😵‍💫<br>
+              Bayangin aja, cuma mau bikin satu bagian rata tengah, bisa ngabisin waktu hampir sejam. Tapi dari situ aku belajar pentingnya sabar (dan Googling 😆).
+              </p>
+
+              <p>Di tengah proses, aku juga kenalan sama yang namanya Bootstrap. Framework ini bener-bener nyelametin hidup. Banyak komponen yang tinggal pakai aja, dari navbar sampai card. Jadi tampilannya nggak terlalu kaku dan lebih modern.</p>
+
+              <p>Meski hasil akhirnya jauh dari kata sempurna, tapi rasanya puas banget. Website itu jadi semacam “monumen” pertama dalam perjalanan belajarku sebagai calon web developer. Dari situ juga aku makin semangat buat belajar lebih dalam, dan mulai explore hal-hal lain kayak Laravel, Tailwind, sampai backend pakai PHP dan Python.</p>
+
+              <p>Sekarang, kalau aku lihat kembali website pertama itu, mungkin bakal sedikit ketawa sendiri. Tapi justru dari situ semuanya mulai.</p>
+
+              <p>Kalau kamu juga lagi bingung mau mulai belajar web dari mana, coba aja langsung praktek. Cari tutorial yang cocok, buka code editor, dan mulai ngetik. Karena percaya deh, belajar koding paling asik kalau langsung dicoba.</p>
+    
+              `,
     image: "./assets/images/blog-1.jpg",
   },
   {
-    title: "Best fonts every designer",
-    content: `<p>Sed ut perspiciatis, nam libero tempore, cum soluta nobis est eligendi.</p>`,
+    title: "Menjaga Bahasa Ibu Lewat Teknologi",
+    content: `
+              <p>Bahasa ibu adalah warisan paling murni yang kita terima sejak lahir. Sayangnya, di tengah dunia yang semakin global, bahasa daerah perlahan-lahan mulai ditinggalkan. Begitu juga yang terjadi di kampung halaman saya, Pulau Kisar, Kabupaten Maluku Barat Daya. Di sana, kami punya dua bahasa daerah yang begitu kaya: bahasa Meher dan bahasa Woirata. Tapi hari ini, keduanya nyaris hanya tinggal cerita.</p>
+
+              <p>Anak-anak muda sudah jarang yang bisa mengucapkan salam atau bercakap dalam bahasa ini. Bahkan, tak sedikit orang tua yang memilih untuk tak lagi mengajarkannya, karena dianggap sudah tidak relevan. Saat itu, sejumlah kakak-kakak dari Pulau Kisar yang sedang menempuh studi di luar daerah menggagas sebuah inisiatif penting untuk melestarikan bahasa Meher dan Woirata. Saya yang saat itu baru lulus SMA, diajak bergabung dalam proyek ini untuk ikut berkontribusi sebagai bagian dari tim penerjemah.</p>
+
+              <p>Lalu lahirlah satu ide: membuat kamus digital Meher–Woirata–Indonesia. Proyek ini bukan hanya soal daftar kata, tapi soal menyelamatkan identitas. Kami membentuk tim berdasarkan peran masing-masing. Ada yang bertugas membangun websitenya, ada juga yang mengumpulkan data. Saya sendiri menjadi bagian dari komite penerjemah, yang langsung turun ke lapangan menemui tetua adat, menggali ingatan mereka tentang bahasa, dan mencatat sebanyak mungkin kosakata, ungkapan, bahkan cara pengucapannya. Kami juga merekam audio agar pelafalan tidak hilang begitu saja.</p>
+
+              <p>Proyek ini bukan hal yang mudah. Minimnya dokumentasi membuat kami benar-benar bergantung pada ingatan para tetua. Tapi justru dari keterbatasan itu, kami jadi lebih semangat. Dibantu juga oleh kepala desa, bahkan didukung oleh Kemdikbud dan Badan Bahasa, kami merasa kerja keras kami punya makna besar.</p>
+
+              <p>Dan kini, hasilnya mulai terlihat. Kami sudah berhasil mengumpulkan lebih dari 15.000 kosakata, lengkap dengan terjemahan otomatis Meher–Woirata–Indonesia, bahkan dilengkapi fitur audio. Meski belum sempurna, ini jadi langkah awal yang sangat berarti.</p>
+
+              <p>Jika teman-teman penasaran dan ingin melihat langsung hasil kerja kami, kunjungi website kamus digital bahasa Meher dan Woirata yang telah dibuat di <a href='https://www.yotowawa.com/' target=_blank>www.yotowawa.com</a>. Semoga bisa menjadi jembatan untuk mengenal dan mencintai bahasa ibu kita bersama.</p>
+
+              <p>Buat saya pribadi, menjaga bahasa ibu bukan cuma soal nostalgia, tapi soal keberanian untuk merawat akar identitas. Karena kalau bukan kita, siapa lagi? Dan kalau bukan sekarang, kapan lagi?</p>
+
+              `,
     image: "./assets/images/blog-2.jpg",
   },
   {
