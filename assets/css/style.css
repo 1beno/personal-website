@@ -1158,6 +1158,10 @@ main {
   padding: 15px;
 }
 
+#blog-detail-content p {
+  color: var(--light-gray) !important;
+}
+
 .blog-meta {
   display: flex;
   justify-content: flex-start;
