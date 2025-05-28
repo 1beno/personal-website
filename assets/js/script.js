@@ -213,13 +213,44 @@ const blogData = [
     image: "./assets/images/blog-3.jpg",
   },
   {
-    title: "UI interactions of the week",
-    content: `<p>Enim ad minim veniam, consectetur adipiscing elit, quis nostrud exercitation ullamco laboris nisi.</p>`,
+    title: "Mengenalkan Python ke Adik-Adik SMA",
+    content: `
+              <p>Beberapa waktu lalu, saya mendapat kesempatan untuk ikut serta dalam kegiatan pengabdian masyarakat yang diselenggarakan oleh program studi saya. Kegiatan ini bertujuan untuk memperkenalkan dasar-dasar bahasa pemrograman Python kepada siswa-siswi MAN 1 Tangerang Selatan. Sebuah pengalaman yang sederhana, tapi penuh pelajaran dan kesan.</p>
+
+              <p>Sebagai mahasiswa ilmu komputer, rasanya senang sekali bisa berbagi sedikit ilmu yang sudah saya pelajari di kampus kepada adik-adik yang mungkin baru pertama kali mengenal dunia koding. Dalam kegiatan ini, saya tidak bertugas sebagai pemateri utama, tapi peran saya cukup penting, yakni sebagai pendamping praktik. Saat sesi praktik dimulai, saya bersama teman-teman lain bertugas untuk membantu para siswa jika mengalami kendala saat menulis atau menjalankan kode.</p>
+
+              <p>Ternyata, menjadi “kakak pendamping” di sesi coding itu nggak semudah kelihatannya. Ada siswa yang belum familiar sama sekali dengan laptop atau IDE, ada yang bingung kenapa programnya nggak jalan, padahal cuma karena lupa tanda titik dua. Tapi di situlah letak keseruannya. Setiap siswa punya tantangannya masing-masing, dan kami berusaha hadir untuk membantu sebisa mungkin.</p>
+
+              <p>Saya juga belajar banyak hal dari pengalaman ini. Misalnya, bagaimana menyampaikan solusi dengan bahasa yang lebih mudah dipahami, atau sabar saat harus menjelaskan hal yang sama berulang-ulang. Bahkan, saya jadi sadar bahwa memahami materi belum tentu sama dengan mampu mengajarkannya.</p>
+
+              <p>Melalui kegiatan ini, saya jadi makin yakin bahwa berbagi ilmu itu bukan cuma soal memberi, tapi juga soal belajar kembali dari sudut pandang yang berbeda. Pengabdian masyarakat bukan berarti kita yang lebih tahu, lalu membagikan semua yang kita bisa. Tapi lebih dari itu, tentang hadir, mendampingi, dan bertumbuh bersama.</p>
+
+              <p>Semoga ke depan akan ada lebih banyak kegiatan seperti ini. Karena ilmu yang dibagikan tak pernah berkurang, dan justru membuat kita semakin kaya akan pengalaman dan perspektif baru.</p>
+            `,
     image: "./assets/images/blog-4.jpg",
   },
   {
-    title: "The forgotten art of spacing",
-    content: `<p>Maxime placeat, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>`,
+    title: "Mengakses Lokasi dan Kamera Target via Link",
+    content: `
+              <p>Dalam dunia keamanan siber, tidak semua serangan dilakukan lewat coding yang rumit atau brute force terhadap sistem. Justru, sering kali celah paling besar justru berasal dari manusia itu sendiri—alias human error. Inilah mengapa social engineering jadi salah satu teknik yang sangat powerful, dan juga berbahaya kalau jatuh ke tangan yang salah.</p>
+
+              <p>Sebagai mahasiswa yang tertarik di bidang cybersecurity, saya mencoba sebuah eksperimen ethical hacking menggunakan tool bernama Stormbreaker. Tool ini memungkinkan kita membuat sebuah link berisi skrip <i>payload</i> yang, jika dibuka oleh target, bisa memberikan informasi seperti lokasi, foto dari kamera, dan lain-lain. Tapi ingat—ini semua saya lakukan hanya dalam konteks simulasi, dengan izin penuh dari target.</p>
+
+              <p>Simulasi Dimulai: Merancang Serangan yang "Ramah"</p>
+              <p>Skenarionya sederhana: saya meminta seorang teman untuk ikut berpartisipasi dalam simulasi ini. Saya menjelaskan bahwa saya sedang belajar social engineering dan ingin mencoba sebuah teknik phishing berbasis link. Dengan persetujuan penuh, saya kemudian mulai membuat link menggunakan Stormbreaker.</p>
+
+              <p>Setelah tool disiapkan dan server dijalankan, saya mendapat URL yang tampak cukup meyakinkan. Saya kemudian membungkusnya agar lebih rapi menggunakan layanan pemendek URL Bitly. Lalu saya kirimkan pesan sederhana untuk memanipulasi target korban dengan pesan seperti ini: <i>"Eh bro, bisa bantu vote desain ini sebentar? Lagi ikut lomba kampus nih hehe, ini link nya bit.ly/LombaPoster2024"</i></p>
+
+              <p>Apa yang Terjadi Setelah Link Dibuka?</p>
+              <p>Begitu teman saya mengklik link tersebut, saya langsung bisa melihat log aktivitas di terminal Stormbreaker. Lokasi perangkatnya terdeteksi, informasi sistemnya muncul, bahkan kamera sempat aktif dan menangkap gambar.</p>
+
+              <p>Ini bukan tentang mengintimidasi atau mencuri data, tapi lebih ke menunjukkan betapa mudahnya seseorang bisa terjebak dalam jebakan yang tampak sepele. Hanya dengan satu klik, informasi yang sangat pribadi bisa diakses oleh orang lain.</p>
+
+              <p>Pengalaman ini membuat saya semakin paham bahwa belajar cybersecurity tidak cukup hanya teori. Tapi juga perlu merasakan langsung, dengan tetap menjaga etika, batasan, dan rasa tanggung jawab.</p>
+
+              <p>Stormbreaker hanyalah satu dari sekian banyak alat yang bisa digunakan dalam dunia ethical hacking. Tapi pengalaman belajar yang saya dapat dari simulasi kecil ini sangat besar dampaknya. Saya jadi lebih memahami cara kerja penyerang, dan yang terpenting: bagaimana kita bisa melindungi diri dan orang-orang di sekitar kita dari ancaman seperti ini.</p>
+
+              `,
     image: "./assets/images/blog-5.jpg",
   },
   {
