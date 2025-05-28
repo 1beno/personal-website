@@ -149,8 +149,8 @@ const blogTab = document.querySelector('[data-page="blog"]');
 // Simpan data blog (bisa juga ambil dari HTML jika mau)
 const blogData = [
   {
-    title: "Design conferences in 2022",
-    content: `<p>Veritatis et quasi architecto beatae vitae dicta sunt, explicabo.</p>`,
+    title: "Membangun Web Pertamaku",
+    content: `<p>Semua orang punya “pertama kali”-nya. Dan untukku, momen itu datang ketika aku akhirnya memberanikan diri untuk bikin website pertamaku sendiri.</p> <p>Waktu itu, aku lagi iseng nonton YouTube dan nemu satu tutorial membuat website sederhana dengan HTML, CSS, dan sedikit JavaScript. Kelihatannya seru, jadi aku pikir: <i>“Kenapa nggak coba aja?”</i></p>`,
     image: "./assets/images/blog-1.jpg",
   },
   {
