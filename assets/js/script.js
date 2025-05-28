@@ -194,8 +194,22 @@ const blogData = [
     image: "./assets/images/blog-2.jpg",
   },
   {
-    title: "Design digest #80",
-    content: `<p>Excepteur sint occaecat cupidatat no proident, quis nostrum exercitationem ullam corporis suscipit.</p>`,
+    title: "Ngoding Harus Hafal?",
+    content: `
+              <p>Waktu pertama kali belajar programming, saya sempat merasa harus hafal semua kode kalau mau jadi jago. Rasanya kayak belajar matematika campur bahasa asing—panik kalau lupa titik koma, bingung kalau salah indentasi, belum lagi nama-nama fungsi yang kadang susah diingat.</p>
+
+              <p>Tapi makin lama belajar, saya mulai sadar satu hal penting: menghafal semua sintaks itu bukan kunci utama untuk jadi programmer yang baik.</p>
+
+              <p>Dunia programming itu luas banget. Ada Python, JavaScript, PHP, C++, Java, dan masih banyak lagi. Setiap bahasa punya ciri khasnya masing-masing, kayak gaya bicara yang beda-beda di tiap daerah.</p>
+              <p>Dan kalau kamu pikir kamu harus menghafal semuanya, bisa-bisa waktu kamu habis cuma buat <i>ngafal</i> tanpa pernah benar-benar <i>paham</i>. Padahal, yang lebih penting dari hafalan adalah pemahaman terhadap dasar-dasarnya. Seperti bagaimana program dijalankan dari awal sampai akhir, apa itu variabel, fungsi, kondisi, dan perulangan, serta bagaimana cara berpikir secara logis untuk menyelesaikan sebuah masalah. Dan ketika sudah mulai belajar tentang OOP (Object-Oriented Programming), memahami konsep seperti inheritance, encapsulation, dan polymorphism justru jauh lebih bermanfaat daripada tahu semua perintah dalam satu bahasa.</p>
+
+              <p>Saya sendiri pertama kali belajar bahasa C++. Bahasa ini memang cukup “keras” tapi sangat membantu membentuk pola pikir yang sistematis dan rapi. Struktur C++ yang ketat dan pendekatan yang dekat dengan sistem membuat saya terbiasa berpikir secara detail. Namun, ketika saya beralih ke Java yang lebih berorientasi objek dan punya struktur yang lebih besar, saya tidak merasa mulai dari nol. Karena saya sudah memahami konsep-konsep dasar pemrograman, saya hanya perlu menyesuaikan diri dengan sintaks dan gaya penulisan Java. Dan kalaupun saya lupa sesuatu? Tinggal buka dokumentasi, cari di internet, atau tanya ke ChatGPT.</p>
+
+              <p>Jadi, apakah perlu hafal semua sintaks? Jawaban singkatnya: <i>tidak harus</i>. Memang, punya ingatan yang baik itu membantu, tapi yang lebih penting adalah punya pemahaman yang kuat. Karena saat kamu mengerti bagaimana dan kenapa sesuatu bekerja, kamu bisa menulis kode di bahasa apa pun. Jadi programmer bukan soal lomba hafalan, tapi soal bagaimana menyelesaikan masalah dengan logika yang tepat.</p>
+
+              <p>Kalau kamu sedang belajar dan merasa kesulitan menghafal semua sintaks, santai aja. Fokuslah untuk membangun fondasi logika dan pemahaman dasar yang kuat. Pahami alur program dan cara berpikir sebagai seorang developer. Sisanya? Bisa kamu pelajari sambil jalan 😉</p>
+
+            `,
     image: "./assets/images/blog-3.jpg",
   },
   {
