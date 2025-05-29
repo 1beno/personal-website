@@ -186,7 +186,7 @@ const blogData = [
 
               <p>Dan kini, hasilnya mulai terlihat. Kami sudah berhasil mengumpulkan lebih dari 15.000 kosakata, lengkap dengan terjemahan otomatis Meher–Woirata–Indonesia, bahkan dilengkapi fitur audio. Meski belum sempurna, ini jadi langkah awal yang sangat berarti.</p>
 
-              <p>Jika teman-teman penasaran dan ingin melihat langsung hasil kerja kami, kunjungi website kamus digital bahasa Meher dan Woirata yang telah dibuat di <a href='https://www.yotowawa.com/' target=_blank>www.yotowawa.com</a>. Semoga bisa menjadi jembatan untuk mengenal dan mencintai bahasa ibu kita bersama.</p>
+              <p>Jika teman-teman penasaran dan ingin melihat langsung hasil kerja kami, kunjungi website kamus digital bahasa Meher dan Woirata yang telah dibuat di <a href='https://www.yotowawa.com/' target="_blank" style="color: hsl(45, 100%, 72%);">www.yotowawa.com</a>. Semoga bisa menjadi jembatan untuk mengenal dan mencintai bahasa ibu kita bersama.</p>
 
               <p>Buat saya pribadi, menjaga bahasa ibu bukan cuma soal nostalgia, tapi soal keberanian untuk merawat akar identitas. Karena kalau bukan kita, siapa lagi? Dan kalau bukan sekarang, kapan lagi?</p>
 
@@ -254,8 +254,16 @@ const blogData = [
     image: "./assets/images/blog-5.jpg",
   },
   {
-    title: "Design digest #79",
-    content: `<p>Optio cumque nihil impedit uo minus quod maxime placeat, velit esse cillum.</p>`,
+    title: "Agen AI Tak Terkalahkan dengan Algoritma Minimax",
+    content: `
+              <p>Saya pertama kali mengenal algoritma <i>minimax</i> saat mengikuti mata kuliah Artificial Intelligence di kampus. Saat itu, kami belajar bagaimana komputer bisa mengambil keputusan optimal dalam permainan dua pemain, seperti catur atau Tic Tac Toe. Dari situ, saya tertarik mencoba menerapkannya secara langsung dalam sebuah proyek kecil yang sederhana namun cukup menantang: membuat agen AI yang tak terkalahkan dalam permainan Tic Tac Toe.</p>
+
+              <p>Tic Tac Toe memang kelihatannya sepele, papan 3x3, dua simbol, dan aturan yang sangat sederhana. Tapi justru karena kesederhanaannya itulah, game ini cocok sebagai latihan implementasi algoritma minimax. Algoritma ini bekerja dengan mengevaluasi semua kemungkinan langkah dari posisi sekarang hingga akhir permainan, lalu memilih langkah terbaik berdasarkan asumsi bahwa lawan juga akan bermain secara optimal. Intinya, AI akan mencari cara untuk memaksimalkan peluang menang, sambil meminimalkan kemungkinan kalah.</p>
+
+              <p>Saya membangun game ini sepenuhnya menggunakan HTML, CSS, dan JavaScript, jadi semuanya berjalan langsung di browser tanpa perlu backend atau instalasi tambahan. Permainan Tic Tac Toe yang sederhana menjadi media yang pas untuk mengimplementasikan minimax, karena skenario langkah-langkahnya terbatas dan bisa diolah secara rekursif.</p>
+
+              <p>Setelah AI selesai, saya mencobanya sendiri. Hasilnya? AI ini benar-benar sulit dikalahkan. Bahkan ketika saya bermain sebaik mungkin, hasil terbaik saya hanya seri. Proyek ini membuat saya semakin menghargai kekuatan logika dalam pengembangan game dan algoritma pencarian keputusan. Kalau kamu penasaran dan ingin mencobanya sendiri, kamu bisa memainkan gamenya langsung <a href="https://tic-tac-toe-tau-opal.vercel.app/" target="_blank" style="color: hsl(45, 100%, 72%);">disini</a>.</p>
+              `,
     image: "./assets/images/blog-6.jpg",
   },
 ];
