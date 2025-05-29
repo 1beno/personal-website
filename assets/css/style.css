@@ -927,6 +927,80 @@ main {
   border-radius: inherit;
 }
 
+/* ...existing code... */
+.tech-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin-top: 24px;
+}
+
+.tech-group-title {
+  color: var(--vegas-gold);
+  font-size: var(--fs-6);
+  margin-bottom: 10px;
+  font-weight: var(--fw-500);
+}
+
+.tech-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px 28px;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.tech-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80px;
+  gap: 8px;
+}
+
+.tech-item img {
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
+  background: var(--bg-gradient-onyx);
+  border-radius: 10px;
+  padding: 6px;
+  box-shadow: var(--shadow-1);
+  margin-bottom: 2px;
+}
+
+.tech-item span {
+  color: var(--light-gray);
+  font-size: var(--fs-8);
+  text-align: center;
+  margin-top: 2px;
+  font-weight: var(--fw-400);
+}
+
+@media (min-width: 580px) {
+  .tech-list {
+    gap: 22px 38px;
+  }
+  .tech-item {
+    width: 100px;
+  }
+  .tech-item img {
+    width: 48px;
+    height: 48px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .tech-stack {
+    flex-direction: row;
+    gap: 48px;
+  }
+  .tech-group {
+    min-width: 180px;
+    flex: 1;
+  }
+}
+
 /*-----------------------------------*\
   #PORTFOLIO
 \*-----------------------------------*/
