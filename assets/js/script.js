@@ -14,6 +14,224 @@ sidebarBtn.addEventListener("click", function () {
   elementToggleFunc(sidebar);
 });
 
+// LANGUAGE TOGGLE FUNCTIONALITY
+const langIdBtn = document.getElementById("lang-id");
+const langEnBtn = document.getElementById("lang-en");
+
+// Semua elemen yang perlu diterjemahkan diberi atribut data-i18n="key"
+// ...existing code...
+const translations = {
+  id: {
+    // ABOUT
+    about_title: "Tentang saya",
+    about_text: `Mahasiswa Ilmu Komputer dengan pengalaman dalam pengembangan aplikasi web dan sistem berbasis AI, serta riset terkait algoritma dan pengolahan data. Mampu membangun website dengan PHP, Python dan menerapkan konsep machine learning dalam studi kasus nyata. Berkomitmen untuk terus mengasah keterampilan dalam Web Development, Machine Learning, dan Cybersecurity guna berkontribusi dalam menciptakan sistem yang aman, efisien, dan berdampak luas di dunia profesional.`,
+    service_title: "Bidang Minat",
+    service_cyber_title: "Keamanan Siber",
+    service_cyber_text:
+      "Melindungi sistem dan data dari ancaman digital menggunakan teknologi keamanan canggih.",
+    service_web_title: "Pengembangan Web",
+    service_web_text:
+      "Membangun situs web yang modern dan aman yang disesuaikan dengan kebutuhan bisnis.",
+    service_mobile_title: "Aplikasi Mobile",
+    service_mobile_text:
+      "Mengembangkan aplikasi seluler yang fungsional dan intuitif untuk platform iOS dan Android.",
+    service_ai_title: "Kecerdasan Buatan",
+    service_ai_text:
+      "Menerapkan kecerdasan buatan untuk menciptakan solusi cerdas dan otomatis.",
+    testimonials_title: "Testimoni",
+    testi_1:
+      "Benony adalah pribadi yang rajin, selalu sigap dalam menyelesaikan tugas, dan cepat beradaptasi saat mempelajari hal baru. Ia juga mampu mengambil peran sebagai pemimpin, mengarahkan tim dengan baik, serta terbuka terhadap pendapat dan sudut pandang yang berbeda.",
+    testi_2:
+      "Benony menunjukkan sikap terbuka terhadap perbedaan pandangan dalam diskusi kelompok. Ia aktif dalam brainstorming dan mempermudah penyusunan tugas dengan menyajikan kerangka kerja yang jelas, sehingga proses kerja kelompok menjadi lebih efisien dan terarah.",
+    testi_3:
+      "Sebagai Kepala Departemen Internal HMIK, bang beno selalu menunjukkan kepemimpinan yang tenang dan penuh tanggung jawab. Berkerja sama dengannya terasa ada jalan untuk kedepan dan menyenangkan.",
+
+    clients_title: "Bagian dari",
+
+    // RESUME
+    resume_title: "Resume",
+    resume_education: "Pendidikan",
+    edu_1_title: "Universitas Pertamina",
+    edu_1_year: "2022 — Sekarang",
+    edu_1_desc:
+      "Mahasiswa Ilmu Komputer yang fokus pada pemrograman, pengembangan perangkat lunak, dan keamanan siber.",
+    edu_2_title: "SMAN 7 Maluku Barat Daya",
+    edu_2_year: "2019 — 2022",
+    edu_2_desc:
+      "Sekolah menengah dengan kinerja akademis yang kuat, terutama dalam mata pelajaran sains dan matematika.",
+
+    resume_experience: "Pengalaman",
+    exp_1_title: "Kepala Departemen Internal HMIK Universitas Pertamina",
+    exp_1_year: "Februari 2025 — Sekarang",
+    exp_1_desc:
+      "Memimpin tim dalam menyusun agenda internal himpunan, monitoring kinerja divisi, dan membangun kultur kerja yang kolaboratif dan produktif di lingkungan organisasi.",
+    exp_2_title: "Asisten Praktikum Object Oriented Programming Java",
+    exp_2_year: "Februari 2025 — Sekarang",
+    exp_2_desc:
+      "Bertanggung jawab dalam memberikan penjelasan materi, membantu menyelesaikan permasalahan praktikum, serta mengevaluasi tugas dan proyek mahasiswa secara objektif.",
+    exp_3_title: "Anggota Komite Penerjemah Indonesia-Meher-Woirata",
+    exp_3_year: "Juli 2022 — Sekarang",
+    exp_3_desc:
+      "Bergabung sebagai anggota komite penerjemah untuk membantu dalam pembuatan kamus digital untuk bahasa Meher dan Woirata.",
+    exp_4_title: "Ketua OSIS SMAN 7 Maluku Barat Daya",
+    exp_4_year: "April 2021 — April 2022",
+    exp_4_desc:
+      "Memimpin organisasi siswa, mengoordinasikan acara sekolah, dan menjembatani komunikasi antara siswa dan administrasi sekolah.",
+    resume_techstack: "Teknologi",
+
+    // PORTFOLIO
+    portfolio_title: "Portofolio",
+    portfolio_select: "Pilih kategori",
+    portfolio_all: "Semua",
+    portfolio_ds: "Data Science",
+    portfolio_ai: "AI/ML",
+    portfolio_frontend: "Web Dev",
+    portfolio_mobile: "Aplikasi Mobile",
+    portfolio_cyber: "Keamanan Siber",
+    portfolio_other: "Lainnya",
+
+    // BLOG
+    blog_title: "Blog",
+    blog_detail_title: "Detail Blog",
+    blog_back: "Kembali ke Blog",
+
+    // CONTACT
+    contact_title: "Kontak",
+    contact_form_title: "Formulir Kontak",
+    contact_fullname: "Nama Lengkap",
+    contact_email: "Alamat Email",
+    contact_message: "Pesan Anda",
+    contact_send: "Kirim Pesan",
+
+    // NAVBAR
+    nav_about: "Tentang",
+    nav_resume: "Resume",
+    nav_portfolio: "Portofolio",
+    nav_blog: "Blog",
+    nav_contact: "Kontak",
+
+    // TOOGLE LANGUAGE
+    lang_label: "Bahasa:",
+  },
+  en: {
+    // ABOUT
+    about_title: "About me",
+    about_text: `Computer Science student with experience in web application and AI-based system development, as well as research related to algorithms and data processing. Able to build websites using PHP, Python, and apply machine learning concepts to real-world cases. Committed to continuously improving skills in Web Development, Machine Learning, and Cybersecurity to contribute to creating secure, efficient, and impactful systems in the professional world.`,
+    service_title: "Fields of Interest",
+    service_cyber_title: "Cyber Security",
+    service_cyber_text:
+      "Protecting systems and data from digital threats using advanced security technologies.",
+    service_web_title: "Web Development",
+    service_web_text:
+      "Building modern, secure, and responsive websites tailored to business and user needs.",
+    service_mobile_title: "Mobile Apps",
+    service_mobile_text:
+      "Developing functional and intuitive mobile applications for both iOS and Android platforms.",
+    service_ai_title: "Artificial Intelligence",
+    service_ai_text:
+      "Applying artificial intelligence to create intelligent and automated solutions.",
+    testimonials_title: "Testimonials",
+    testi_1:
+      "Benony is a diligent person, always quick to complete tasks, and adapts quickly when learning new things. He is also able to take on leadership roles, guide the team well, and is open to different opinions and perspectives.",
+    testi_2:
+      "Benony shows openness to differing views in group discussions. He is active in brainstorming and makes task structuring easier by providing a clear framework, making group work more efficient and focused.",
+    testi_3:
+      "As Head of the Internal Department of HMIK, Ben always demonstrates calm and responsible leadership. Working with him feels like there is always a way forward and it's enjoyable.",
+    clients_title: "Part of",
+
+    // RESUME
+    resume_title: "Resume",
+    resume_education: "Education",
+    edu_1_title: "Pertamina University",
+    edu_1_year: "2022 — Present",
+    edu_1_desc:
+      "Computer Science student focusing on programming, software development, and cybersecurity.",
+    edu_2_title: "SMAN 7 Maluku Barat Daya",
+    edu_2_year: "2019 — 2022",
+    edu_2_desc:
+      "High school with strong academic performance, especially in science and mathematics.",
+    resume_experience: "Experience",
+    exp_1_title: "Head of Internal Department, HMIK Pertamina University",
+    exp_1_year: "February 2025 — Present",
+    exp_1_desc:
+      "Led a team to organize internal agendas, monitor division performance, and build a collaborative and productive work culture within the organization.",
+    exp_2_title: "Teaching Assistant for Object Oriented Programming Java",
+    exp_2_year: "February 2025 — Present",
+    exp_2_desc:
+      "Responsible for explaining material, helping solve practical problems, and objectively evaluating student assignments and projects.",
+    exp_3_title: "Member of Indonesia-Meher-Woirata Translation Committee",
+    exp_3_year: "July 2022 — Present",
+    exp_3_desc:
+      "Joined the translation committee to help develop a digital dictionary for the Meher and Woirata languages.",
+    exp_4_title: "Student Council President, SMAN 7 Maluku Barat Daya",
+    exp_4_year: "April 2021 — April 2022",
+    exp_4_desc:
+      "Led the student organization, coordinated school events, and bridged communication between students and school administration.",
+    resume_techstack: "Tech Stack",
+
+    // PORTFOLIO
+    portfolio_title: "Portfolio",
+    portfolio_select: "Select category",
+    portfolio_all: "All",
+    portfolio_ds: "Data Science",
+    portfolio_ai: "AI/ML",
+    portfolio_frontend: "Frontend",
+    portfolio_webapp: "Web App",
+    portfolio_mobile: "Mobile App",
+    portfolio_cyber: "Cyber Security",
+    portfolio_other: "Other",
+
+    // BLOG
+    blog_title: "Blog",
+    blog_detail_title: "Blog Detail",
+    blog_back: "Back to Blog",
+
+    // CONTACT
+    contact_title: "Contact",
+    contact_form_title: "Contact Form",
+    contact_fullname: "Full name",
+    contact_email: "Email address",
+    contact_message: "Your Message",
+    contact_send: "Send Message",
+
+    // NAVBAR
+    nav_about: "About",
+    nav_resume: "Resume",
+    nav_portfolio: "Portfolio",
+    nav_blog: "Blog",
+    nav_contact: "Contact",
+
+    // TOOGLE LANGUAGE
+    lang_label: "Language:",
+  },
+};
+// ...existing code...
+
+function setLanguage(lang) {
+  // Toggle tombol aktif
+  langIdBtn.classList.toggle("active", lang === "id");
+  langEnBtn.classList.toggle("active", lang === "en");
+
+  // Ganti konten yang diterjemahkan
+  document.querySelectorAll("[data-i18n]").forEach((el) => {
+    const key = el.getAttribute("data-i18n");
+    if (translations[lang][key]) {
+      el.innerHTML = translations[lang][key];
+    }
+  });
+  // Simpan preferensi di localStorage
+  localStorage.setItem("lang", lang);
+}
+
+// Event listener
+langIdBtn.addEventListener("click", () => setLanguage("id"));
+langEnBtn.addEventListener("click", () => setLanguage("en"));
+
+// Set bahasa default dari localStorage atau ID
+document.addEventListener("DOMContentLoaded", () => {
+  setLanguage(localStorage.getItem("lang") || "id");
+});
+
 // testimonials variables
 const testimonialsItem = document.querySelectorAll("[data-testimonials-item]");
 const modalContainer = document.querySelector("[data-modal-container]");
@@ -76,7 +294,7 @@ const filterItems = document.querySelectorAll("[data-filter-item]");
 
 const filterFunc = function (selectedValue) {
   for (let i = 0; i < filterItems.length; i++) {
-    if (selectedValue === "all") {
+    if (selectedValue === "semua") {
       filterItems[i].classList.add("active");
     } else if (selectedValue === filterItems[i].dataset.category) {
       filterItems[i].classList.add("active");
@@ -125,14 +343,15 @@ const pages = document.querySelectorAll("[data-page]");
 // add event to all nav link
 for (let i = 0; i < navigationLinks.length; i++) {
   navigationLinks[i].addEventListener("click", function () {
-    for (let i = 0; i < pages.length; i++) {
-      if (this.innerHTML.toLowerCase() === pages[i].dataset.page) {
-        pages[i].classList.add("active");
+    const targetPage = this.getAttribute("data-page-target");
+    for (let j = 0; j < pages.length; j++) {
+      if (pages[j].dataset.page === targetPage) {
+        pages[j].classList.add("active");
         navigationLinks[i].classList.add("active");
         window.scrollTo(0, 0);
       } else {
-        pages[i].classList.remove("active");
-        navigationLinks[i].classList.remove("active");
+        pages[j].classList.remove("active");
+        navigationLinks[j].classList.remove("active");
       }
     }
   });
