@@ -750,7 +750,6 @@
             </ol>
           </section>
 
-          <!-- ...existing code... -->
           <section class="skill">
             <h3 class="h3 skills-title" data-i18n="resume_techstack">
               Teknologi
@@ -968,34 +967,34 @@
                 <button
                   class="active"
                   data-filter-btn
+                  data-filter="all"
                   data-i18n="portfolio_all"
                 >
                   Semua
                 </button>
               </li>
-
               <li class="filter-item">
-                <button data-filter-btn>Data Science</button>
+                <button data-filter-btn data-filter="data science">
+                  Data Science
+                </button>
               </li>
-
               <li class="filter-item">
-                <button data-filter-btn>AI/ML</button>
+                <button data-filter-btn data-filter="ai/ml">AI/ML</button>
               </li>
-
               <li class="filter-item">
-                <button data-filter-btn>Web Dev</button>
+                <button data-filter-btn data-filter="web dev">Web Dev</button>
               </li>
-
-              <!-- <li class="filter-item">
-                <button data-filter-btn>Mobile App</button>
-              </li> -->
-
               <li class="filter-item">
-                <button data-filter-btn>Cyber Security</button>
+                <button data-filter-btn data-filter="cyber security">
+                  Cyber Security
+                </button>
               </li>
-
               <li class="filter-item">
-                <button data-filter-btn data-i18n="portfolio_other">
+                <button
+                  data-filter-btn
+                  data-filter="lainnya"
+                  data-i18n="portfolio_other"
+                >
                   Lainnya
                 </button>
               </li>
@@ -1018,21 +1017,26 @@
 
               <ul class="select-list">
                 <li class="select-item">
-                  <button data-select-item data-i18n="portfolio_all">
+                  <button
+                    data-select-item
+                    data-filter="all"
+                    data-i18n="portfolio_all"
+                  >
                     Semua
                   </button>
                 </li>
-
                 <li class="select-item">
-                  <button data-select-item>Data Science</button>
+                  <button data-select-item data-filter="data science">
+                    Data Science
+                  </button>
                 </li>
-
                 <li class="select-item">
-                  <button data-select-item>AI/ML</button>
+                  <button data-select-item data-filter="ai/ml">AI/ML</button>
                 </li>
-
                 <li class="select-item">
-                  <button data-select-item>Web Dev</button>
+                  <button data-select-item data-filter="web dev">
+                    Web Dev
+                  </button>
                 </li>
 
                 <!-- <li class="select-item">
@@ -1040,11 +1044,17 @@
                 </li> -->
 
                 <li class="select-item">
-                  <button data-select-item>Cyber Security</button>
+                  <button data-select-item data-filter="cyber security">
+                    Cyber Security
+                  </button>
                 </li>
 
                 <li class="select-item">
-                  <button data-select-item data-i18n="portfolio_other">
+                  <button
+                    data-select-item
+                    data-filter="lainnya"
+                    data-i18n="portfolio_other"
+                  >
                     Lainnya
                   </button>
                 </li>
