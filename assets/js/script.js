@@ -14,10 +14,6 @@ sidebarBtn.addEventListener("click", function () {
   elementToggleFunc(sidebar);
 });
 
-// LANGUAGE TOGGLE FUNCTIONALITY
-const langIdBtn = document.getElementById("lang-id");
-const langEnBtn = document.getElementById("lang-en");
-
 // Semua elemen yang perlu diterjemahkan diberi atribut data-i18n="key"
 // ...existing code...
 const translations = {
@@ -205,27 +201,36 @@ const translations = {
     lang_label: "Language:",
   },
 };
-// ...existing code...
 
+// TOGGLE LANGUAGE FUNCTIONALITY
+const langSwitch = document.getElementById("language-toggle");
+if (langSwitch) {
+  langSwitch.addEventListener("change", function () {
+    setLanguage(this.checked ? "en" : "id");
+  });
+  // Set posisi switch sesuai localStorage saat load
+  document.addEventListener("DOMContentLoaded", () => {
+    const lang = localStorage.getItem("lang") || "id";
+    langSwitch.checked = lang === "en";
+    setLanguage(lang);
+  });
+} else {
+  // Jika tidak ada switch, tetap set bahasa dari localStorage saat load
+  document.addEventListener("DOMContentLoaded", () => {
+    setLanguage(localStorage.getItem("lang") || "id");
+  });
+}
+
+// Fungsi setLanguage hanya perlu ini:
 function setLanguage(lang) {
-  // Toggle tombol aktif
-  langIdBtn.classList.toggle("active", lang === "id");
-  langEnBtn.classList.toggle("active", lang === "en");
-
-  // Ganti konten yang diterjemahkan
   document.querySelectorAll("[data-i18n]").forEach((el) => {
     const key = el.getAttribute("data-i18n");
     if (translations[lang][key]) {
       el.innerHTML = translations[lang][key];
     }
   });
-  // Simpan preferensi di localStorage
   localStorage.setItem("lang", lang);
 }
-
-// Event listener
-langIdBtn.addEventListener("click", () => setLanguage("id"));
-langEnBtn.addEventListener("click", () => setLanguage("en"));
 
 // Set bahasa default dari localStorage atau ID
 document.addEventListener("DOMContentLoaded", () => {
