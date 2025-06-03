@@ -41,6 +41,8 @@ const translations = {
       "Benony menunjukkan sikap terbuka terhadap perbedaan pandangan dalam diskusi kelompok. Ia aktif dalam brainstorming dan mempermudah penyusunan tugas dengan menyajikan kerangka kerja yang jelas, sehingga proses kerja kelompok menjadi lebih efisien dan terarah.",
     testi_3:
       "Sebagai Kepala Departemen Internal HMIK, bang beno selalu menunjukkan kepemimpinan yang tenang dan penuh tanggung jawab. Berkerja sama dengannya terasa ada jalan untuk kedepan dan menyenangkan.",
+    testi_4:
+      "Kerja bareng Benony selama di kelompok seru banget! Dia selalu sigap dan gak pernah bikin kita stuck. Kalau ada yang bingung, dia dengan sabar bantu jelasin sampai ngerti. Gak cuma ngerjain tugasnya aja, tapi juga perhatian sama temen-temen yang lain. Pokoknya, Benony itu teman kerja yang asik dan bisa diandalkan banget.",
 
     clients_title: "Bagian dari",
 
@@ -133,6 +135,8 @@ const translations = {
       "Benony shows openness to differing views in group discussions. He is active in brainstorming and makes task structuring easier by providing a clear framework, making group work more efficient and focused.",
     testi_3:
       "As Head of the Internal Department of HMIK, Ben always demonstrates calm and responsible leadership. Working with him feels like there is always a way forward and it's enjoyable.",
+    testi_4:
+      "Working with Benony has been a great experience! He is always quick to help and never lets us get stuck. If anyone is confused, he patiently explains things until they understand. He not only completes his tasks but also pays attention to his teammates. Overall, Benony is a fun and reliable coworker.",
     clients_title: "Part of",
 
     // RESUME
