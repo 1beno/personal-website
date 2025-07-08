@@ -1767,38 +1767,30 @@
               Formulir Kontak
             </h3>
 
-            <form action="#" class="form" data-form>
-              <div class="input-wrapper">
-                <input
-                  type="text"
-                  name="fullname"
-                  class="form-input"
-                  placeholder="Full Name"
-                  required
-                  data-form-input
-                />
-
-                <input
-                  type="email"
-                  name="email"
-                  class="form-input"
-                  placeholder="Email Address"
-                  required
-                  data-form-input
-                />
-              </div>
+            <form action="#" class="form" data-form id="whatsapp-form">
+              <input
+                type="text"
+                name="fullname"
+                class="form-input"
+                placeholder="Nama Lengkap"
+                required
+                data-form-input
+                data-i18n-placeholder="contact_fullname"
+              />
 
               <textarea
                 name="message"
                 class="form-input"
-                placeholder="Your Message"
+                placeholder="Pesan Anda"
                 required
                 data-form-input
+                data-i18n-placeholder="contact_message"
+                rows="6"
               ></textarea>
 
               <button class="form-btn" type="submit" disabled data-form-btn>
-                <ion-icon name="paper-plane"></ion-icon>
-                <span data-i18n="contact_send">Kirim Pesan</span>
+                <ion-icon name="logo-whatsapp"></ion-icon>
+                <span data-i18n="contact_send">Kirim ke WhatsApp</span>
               </button>
             </form>
           </section>

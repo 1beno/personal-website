@@ -99,7 +99,8 @@ const translations = {
     contact_fullname: "Nama Lengkap",
     contact_email: "Alamat Email",
     contact_message: "Pesan Anda",
-    contact_send: "Kirim Pesan",
+    contact_send: "Kirim ke WhatsApp",
+    contact_sending: "Mengirim...",
 
     // NAVBAR
     nav_about: "Tentang",
@@ -192,7 +193,8 @@ const translations = {
     contact_fullname: "Full name",
     contact_email: "Email address",
     contact_message: "Your Message",
-    contact_send: "Send Message",
+    contact_send: "Send to WhatsApp",
+    contact_sending: "Sending...",
 
     // NAVBAR
     nav_about: "About",
@@ -233,6 +235,15 @@ function setLanguage(lang) {
       el.innerHTML = translations[lang][key];
     }
   });
+
+  // Update placeholders
+  document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
+    const key = el.getAttribute("data-i18n-placeholder");
+    if (translations[lang][key]) {
+      el.placeholder = translations[lang][key];
+    }
+  });
+
   localStorage.setItem("lang", lang);
 }
 
@@ -524,3 +535,62 @@ backToBlogBtn.addEventListener("click", function () {
   blogTab.classList.add("active");
   window.scrollTo(0, 0);
 });
+
+// WHATSAPP FORM FUNCTIONALITY
+const whatsappForm = document.getElementById("whatsapp-form");
+
+// PENTING: Ganti dengan nomor WhatsApp Anda (format: 62XXXXXXXXXX tanpa tanda +)
+// Contoh: untuk nomor 081234567890, tulis: 6281234567890
+const WHATSAPP_NUMBER = "6282125611692"; // <-- GANTI DENGAN NOMOR WA ANDA
+
+if (whatsappForm) {
+  whatsappForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    // Ambil data dari form
+    const nameInput = whatsappForm.querySelector('input[name="fullname"]');
+    const messageInput = whatsappForm.querySelector('textarea[name="message"]');
+
+    const name = nameInput.value.trim();
+    const message = messageInput.value.trim();
+
+    if (name && message) {
+      // Disable button dan tambah loading state
+      const submitBtn = whatsappForm.querySelector("[data-form-btn]");
+      const submitText = submitBtn.querySelector("span");
+      const originalText = submitText.textContent;
+
+      // Get current language
+      const currentLang = localStorage.getItem("lang") || "id";
+      const loadingText =
+        translations[currentLang].contact_sending || "Mengirim...";
+
+      submitBtn.setAttribute("disabled", "");
+      submitText.textContent = loadingText;
+
+      // Format pesan WhatsApp
+      const whatsappMessage = `Halo, saya ${name}.%0A%0A${message}`;
+
+      // URL WhatsApp
+      const whatsappURL = `https://wa.me/${WHATSAPP_NUMBER}?text=${whatsappMessage}`;
+
+      // Delay sedikit untuk smooth UX
+      setTimeout(() => {
+        // Buka WhatsApp di tab baru
+        window.open(whatsappURL, "_blank");
+
+        // Reset form setelah submit
+        setTimeout(() => {
+          whatsappForm.reset();
+          whatsappForm.classList.remove("success");
+          submitText.textContent = originalText;
+
+          // Re-enable validation untuk form kosong
+          if (!whatsappForm.checkValidity()) {
+            submitBtn.setAttribute("disabled", "");
+          }
+        }, 1000);
+      }, 300);
+    }
+  });
+}
