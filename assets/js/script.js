@@ -740,6 +740,110 @@ function initializePortfolioLinks(links) {
 
 // Data portfolio dengan deskripsi lengkap
 const portfolioData = {
+  "sentiment-analysis": {
+    id: {
+      title: "Sentiment Analysis on APERTI BUMN University Reviews",
+      category: "AI/ML",
+      description:
+        "Proyek ini bertujuan untuk mengklasifikasikan sentimen dari ulasan pengguna terhadap kampus-kampus APERTI BUMN menggunakan pendekatan machine learning. Label sentimen diperoleh melalui API OpenAI, kemudian data diproses dan diseimbangkan untuk membangun model klasifikasi yang akurat.",
+      tech: [
+        "Python",
+        "Scikit-learn",
+        "imbalanced-learn (SMOTE)",
+        "OpenAI API",
+        "Pandas",
+        "NumPy",
+        "Matplotlib",
+        "Seaborn",
+      ],
+      features: [
+        "Preprocessing teks lengkap (normalisasi, tokenisasi, dll)",
+        "Labeling otomatis menggunakan OpenAI GPT API",
+        "Penanganan data tidak seimbang dengan SMOTE",
+        "Pembandingan model SVM, Random Forest, dan Logistic Regression",
+        "Evaluasi performa sebelum dan sesudah tuning",
+      ],
+      image: "./assets/images/project-15.png",
+      url: "https://github.com/gbennnn/sentiment-analysis-aperti-bumn",
+    },
+    en: {
+      title: "Sentiment Analysis on APERTI BUMN University Reviews",
+      category: "AI/ML",
+      description:
+        "This project aims to classify the sentiment of user reviews for APERTI BUMN universities using machine learning approaches. Sentiment labels are obtained through the OpenAI API, then the data is processed and balanced to build an accurate classification model.",
+      tech: [
+        "Python",
+        "Scikit-learn",
+        "imbalanced-learn (SMOTE)",
+        "OpenAI API",
+        "Pandas",
+        "NumPy",
+        "Matplotlib",
+        "Seaborn",
+      ],
+      features: [
+        "Complete text preprocessing (normalization, tokenization, etc.)",
+        "Automatic labeling using OpenAI GPT API",
+        "Handling imbalanced data with SMOTE",
+        "Comparison of SVM, Random Forest, and Logistic Regression models",
+        "Performance evaluation before and after tuning",
+      ],
+      image: "./assets/images/project-15.png",
+      url: "https://github.com/gbennnn/sentiment-analysis-aperti-bumn",
+    },
+  },
+
+  "fire-and-smoke-detector": {
+    id: {
+      title: "IoT - Fire and Smoke Detector System",
+      category: "Lainnya",
+      description:
+        "Sistem ini dirancang untuk mendeteksi keberadaan asap dan api secara real-time menggunakan sensor MQ2 dan flame sensor yang terintegrasi dengan mikrokontroler ESP32. Data deteksi ditampilkan melalui antarmuka web responsif, dilengkapi dengan alarm peringatan dan visualisasi lokasi menggunakan Google Maps. Sistem ini bertujuan untuk mendukung mitigasi dini kebakaran pada skala kecil hingga menengah dengan pendekatan berbasis Internet of Things.",
+      tech: [
+        "Microcontroller",
+        "MQ2 Sensor",
+        "Flame Sensor",
+        "ESP32",
+        "Micropython",
+        "HTML",
+        "CSS",
+        "JavaScript",
+      ],
+      features: [
+        "<b>Deteksi Real-Time:</b> Menggunakan sensor untuk memantau asap dan api secara langsung.",
+        "<b>Peringatan Otomatis:</b> Mengaktifkan buzzer sebagai alarm saat terdeteksi kondisi berbahaya.",
+        "<b>Antarmuka Web Responsif:</b> Menampilkan status sensor dan grafik deteksi melalui dashboard web.",
+        "<b>Integrasi Lokasi:</b> Menyediakan visualisasi lokasi melalui Google Maps saat kebakaran terdeteksi.",
+      ],
+      image: "./assets/images/project-14.png",
+      url: "https://github.com/gbennnn/fire-and-smoke-detector",
+    },
+    en: {
+      title: "IoT - Fire and Smoke Detector System",
+      category: "Others",
+      description:
+        "This system is designed to detect the presence of smoke and fire in real-time using MQ2 and flame sensors integrated with an ESP32 microcontroller. Detection data is displayed through a responsive web interface, complete with warning alarms and location visualization using Google Maps. The system aims to support early fire mitigation on a small to medium scale with an Internet of Things-based approach.",
+      tech: [
+        "Microcontroller",
+        "MQ2 Sensor",
+        "Flame Sensor",
+        "ESP32",
+        "Micropython",
+        "HTML",
+        "CSS",
+        "JavaScript",
+      ],
+      features: [
+        "<b>Real-Time Detection:</b> Monitors smoke and fire conditions directly using sensors.",
+        "<b>Automatic Alerts:</b> Activates a buzzer as an alarm when dangerous conditions are detected.",
+        "<b>Responsive Web Interface:</b> Displays sensor status and detection graphs through a web dashboard.",
+        "<b>Location Integration:</b> Provides location visualization via Google Maps when a fire is detected.",
+      ],
+      image: "./assets/images/project-14.png",
+      url: "https://github.com/gbennnn/fire-and-smoke-detector",
+    },
+  },
+
   stegcrypt: {
     id: {
       title:
@@ -1188,9 +1292,11 @@ function getPortfolioKey(title) {
   const cleanTitle = title.trim().replace(/\s+/g, " ");
 
   const mapping = {
+    "Sentiment Analysis on APERTI BUMN University Reviews":
+      "sentiment-analysis",
+    "IoT - Fire and Smoke Detector System": "fire-and-smoke-detector",
     "Secure Image-based Message Encryption using AES and Steganography":
       "stegcrypt",
-    "StegCrypt: Sembunyikan Pesan dalam Gambar": "stegcrypt", // Alternative title
     "Topic Modelling with LDA": "topic-modeling",
     "A Simple Data Encryption Standard": "des-encryption",
     "Open Data Contributions": "open-data",
