@@ -99,7 +99,8 @@ const translations = {
     contact_fullname: "Nama Lengkap",
     contact_email: "Alamat Email",
     contact_message: "Pesan Anda",
-    contact_send: "Kirim Pesan",
+    contact_send: "Kirim ke WhatsApp",
+    contact_sending: "Mengirim...",
 
     // NAVBAR
     nav_about: "Tentang",
@@ -107,6 +108,14 @@ const translations = {
     nav_portfolio: "Portofolio",
     nav_blog: "Blog",
     nav_contact: "Kontak",
+
+    // PORTFOLIO DETAIL
+    portfolio_detail_title: "Detail Portfolio",
+    portfolio_description: "Deskripsi",
+    portfolio_tech: "Teknologi",
+    portfolio_features: "Fitur Utama",
+    portfolio_view: "Lihat Portfolio",
+    portfolio_back: "Kembali ke Portfolio",
 
     // TOOGLE LANGUAGE
     lang_label: "Bahasa:",
@@ -192,7 +201,8 @@ const translations = {
     contact_fullname: "Full name",
     contact_email: "Email address",
     contact_message: "Your Message",
-    contact_send: "Send Message",
+    contact_send: "Send to WhatsApp",
+    contact_sending: "Sending...",
 
     // NAVBAR
     nav_about: "About",
@@ -200,6 +210,14 @@ const translations = {
     nav_portfolio: "Portfolio",
     nav_blog: "Blog",
     nav_contact: "Contact",
+
+    // PORTFOLIO DETAIL
+    portfolio_detail_title: "Portfolio Detail",
+    portfolio_description: "Description",
+    portfolio_tech: "Technology",
+    portfolio_features: "Key Features",
+    portfolio_view: "View Portfolio",
+    portfolio_back: "Back to Portfolio",
 
     // TOOGLE LANGUAGE
     lang_label: "Language:",
@@ -233,7 +251,19 @@ function setLanguage(lang) {
       el.innerHTML = translations[lang][key];
     }
   });
+
+  // Update placeholders
+  document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
+    const key = el.getAttribute("data-i18n-placeholder");
+    if (translations[lang][key]) {
+      el.placeholder = translations[lang][key];
+    }
+  });
+
   localStorage.setItem("lang", lang);
+
+  // Update portfolio detail jika sedang aktif
+  updatePortfolioDetailLanguage();
 }
 
 // Set bahasa default dari localStorage atau ID
@@ -353,14 +383,22 @@ const pages = document.querySelectorAll("[data-page]");
 for (let i = 0; i < navigationLinks.length; i++) {
   navigationLinks[i].addEventListener("click", function () {
     const targetPage = this.getAttribute("data-page-target");
+
+    // Remove active class from all navigation links first
+    for (let k = 0; k < navigationLinks.length; k++) {
+      navigationLinks[k].classList.remove("active");
+    }
+
+    // Add active class to clicked navigation link
+    navigationLinks[i].classList.add("active");
+
+    // Handle page switching
     for (let j = 0; j < pages.length; j++) {
       if (pages[j].dataset.page === targetPage) {
         pages[j].classList.add("active");
-        navigationLinks[i].classList.add("active");
         window.scrollTo(0, 0);
       } else {
         pages[j].classList.remove("active");
-        navigationLinks[j].classList.remove("active");
       }
     }
   });
@@ -523,4 +561,736 @@ backToBlogBtn.addEventListener("click", function () {
     .forEach((tab) => tab.classList.remove("active"));
   blogTab.classList.add("active");
   window.scrollTo(0, 0);
+});
+
+// WHATSAPP FORM FUNCTIONALITY
+const whatsappForm = document.getElementById("whatsapp-form");
+
+// PENTING: Ganti dengan nomor WhatsApp Anda (format: 62XXXXXXXXXX tanpa tanda +)
+// Contoh: untuk nomor 081234567890, tulis: 6281234567890
+const WHATSAPP_NUMBER = "6282190919659"; // <-- GANTI DENGAN NOMOR WA ANDA
+
+if (whatsappForm) {
+  whatsappForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    // Ambil data dari form
+    const nameInput = whatsappForm.querySelector('input[name="fullname"]');
+    const messageInput = whatsappForm.querySelector('textarea[name="message"]');
+
+    const name = nameInput.value.trim();
+    const message = messageInput.value.trim();
+
+    if (name && message) {
+      // Disable button dan tambah loading state
+      const submitBtn = whatsappForm.querySelector("[data-form-btn]");
+      const submitText = submitBtn.querySelector("span");
+      const originalText = submitText.textContent;
+
+      // Get current language
+      const currentLang = localStorage.getItem("lang") || "id";
+      const loadingText =
+        translations[currentLang].contact_sending || "Mengirim...";
+
+      submitBtn.setAttribute("disabled", "");
+      submitText.textContent = loadingText;
+
+      // Format pesan WhatsApp
+      const whatsappMessage = `Halo, saya ${name}.%0A%0A${message}`;
+
+      // URL WhatsApp
+      const whatsappURL = `https://wa.me/${WHATSAPP_NUMBER}?text=${whatsappMessage}`;
+
+      // Delay sedikit untuk smooth UX
+      setTimeout(() => {
+        // Buka WhatsApp di tab baru
+        window.open(whatsappURL, "_blank");
+
+        // Reset form setelah submit
+        setTimeout(() => {
+          whatsappForm.reset();
+          whatsappForm.classList.remove("success");
+          submitText.textContent = originalText;
+
+          // Re-enable validation untuk form kosong
+          if (!whatsappForm.checkValidity()) {
+            submitBtn.setAttribute("disabled", "");
+          }
+        }, 1000);
+      }, 300);
+    }
+  });
+}
+
+// PORTFOLIO DETAIL FUNCTIONALITY
+const portfolioLinks = document.querySelectorAll(".project-item > a");
+const portfolioDetailTab = document.querySelector(
+  '[data-page="portfolio-detail"]'
+);
+const portfolioDetailTitle = document.getElementById("portfolio-detail-title");
+const portfolioDetailContent = document.getElementById(
+  "portfolio-detail-content"
+);
+const backToPortfolioBtn = document.getElementById("back-to-portfolio");
+const portfolioTab = document.querySelector('[data-page="portfolio"]');
+const viewPortfolioBtn = document.getElementById("view-portfolio-btn");
+
+// Variable global untuk menyimpan portfolio yang sedang aktif
+let currentPortfolioInfo = null;
+let currentPortfolioUrl = null;
+
+// Fungsi untuk update bahasa portfolio detail
+function updatePortfolioDetailLanguage() {
+  // Cek apakah halaman portfolio detail sedang aktif
+  const portfolioDetailPage = document.querySelector(
+    '[data-page="portfolio-detail"]'
+  );
+  if (
+    portfolioDetailPage &&
+    portfolioDetailPage.classList.contains("active") &&
+    currentPortfolioInfo
+  ) {
+    // Update konten dengan bahasa baru
+    const currentLang = localStorage.getItem("lang") || "id";
+    const data = currentPortfolioInfo[currentLang];
+
+    if (data) {
+      // Update konten portfolio detail
+      document.getElementById("portfolio-detail-name").textContent = data.title;
+      document.getElementById("portfolio-detail-category").textContent =
+        data.category;
+      document.getElementById("portfolio-detail-desc").textContent =
+        data.description;
+      document.getElementById("portfolio-detail-image").src = data.image;
+      document.getElementById("portfolio-detail-image").alt = data.title;
+
+      // Update tech stack
+      const techList = document.getElementById("portfolio-detail-tech-list");
+      techList.innerHTML = data.tech
+        .map((tech) => `<span class="tech-tag">${tech}</span>`)
+        .join("");
+
+      // Update features
+      const featuresList = document.getElementById(
+        "portfolio-detail-features-list"
+      );
+      featuresList.innerHTML = data.features
+        .map((feature) => `<li>${feature}</li>`)
+        .join("");
+
+      // Set URL untuk tombol view
+      const viewBtn = document.getElementById("view-portfolio-btn");
+      if (viewBtn) {
+        viewBtn.onclick = () => window.open(data.url, "_blank");
+      }
+    }
+  }
+}
+
+// Re-initialize portfolio links setelah DOM loaded
+document.addEventListener("DOMContentLoaded", () => {
+  // Re-select portfolio links setelah semua elemen dimuat
+  const updatedPortfolioLinks = document.querySelectorAll(".project-item > a");
+  initializePortfolioLinks(updatedPortfolioLinks);
+
+  // Juga inisialisasi portfolio links yang sudah ada
+  portfolioLinks.forEach((link) => {
+    // Remove existing event listeners first
+    const newLink = link.cloneNode(true);
+    link.parentNode.replaceChild(newLink, link);
+  });
+
+  // Re-select dan re-attach event listeners
+  const allPortfolioLinks = document.querySelectorAll(".project-item > a");
+  initializePortfolioLinks(allPortfolioLinks);
+});
+
+// Fungsi inisialisasi portfolio links
+function initializePortfolioLinks(links) {
+  links.forEach((link) => {
+    link.addEventListener("click", function (e) {
+      e.preventDefault();
+
+      // Ambil data dari elemen
+      const projectItem = this.closest(".project-item");
+      const titleElement = this.querySelector(".project-title");
+      const title = titleElement.textContent.trim().replace(/\s+/g, " "); // Normalize whitespace
+      const category = this.querySelector(".project-category").textContent;
+      const imageUrl = this.querySelector("img").src;
+      const projectUrl = this.getAttribute("data-portfolio-url") || this.href;
+
+      // Cari data portfolio berdasarkan title atau buat mapping
+      let portfolioKey = getPortfolioKey(title);
+      let portfolioInfo = portfolioData[portfolioKey];
+
+      if (!portfolioInfo) {
+        // Fallback jika data tidak ditemukan
+        portfolioInfo = createFallbackData(
+          title,
+          category,
+          imageUrl,
+          projectUrl
+        );
+      }
+
+      showPortfolioDetail(portfolioInfo, projectUrl);
+    });
+  });
+}
+
+// Data portfolio dengan deskripsi lengkap
+const portfolioData = {
+  stegcrypt: {
+    id: {
+      title:
+        "Secure Image-based Message Encryption using AES and Steganography",
+      category: "Cyber Security",
+      description:
+        "Aplikasi berbasis web yang mengenkripsi pesan teks menggunakan algoritma AES-128 (Rijndael) dan menyisipkan pesan terenkripsi ke dalam gambar PNG menggunakan teknik steganografi LSB (Least Significant Bit). Proyek ini menggabungkan kriptografi dan penyembunyian data untuk menjaga kerahasiaan pesan saat dikirim.",
+      tech: ["Python", "Flask", "PIL", "Tailwind CSS", "AES-128", "JavaScript"],
+      features: [
+        "<b>AES-128 Encryption:</b> Mengamankan pesan teks menjadi ciphertext menggunakan algoritma Rijndael",
+        "<b>Steganographic Embedding:</b> Menyembunyikan pesan ke dalam piksel gambar PNG.",
+        "<b>Decryption Support:</b> Mengekstrak dan mendekripsi pesan tersembunyi dengan kunci yang sesuai.",
+        "<b>User-Friendly Interface:</b> Pengguna dapat dengan mudah mengunggah gambar dan menginput pesan.",
+      ],
+      image: "./assets/images/project-13.png",
+      url: "https://stegcrypt.onrender.com",
+    },
+    en: {
+      title:
+        "Secure Image-based Message Encryption using AES and Steganography",
+      category: "Cyber Security",
+      description:
+        "A web-based application that encrypts textual messages using the AES-128 (Rijndael) algorithm and embeds the encrypted data into PNG images using Least Significant Bit (LSB) steganography. This project ensures secure message transmission by combining cryptography and data hiding techniques.",
+      tech: ["Python", "Flask", "PIL", "Tailwind CSS", "AES-128", "JavaScript"],
+      features: [
+        "<b>AES-128 Encryption:</b> Converts plaintext into secure ciphertext using Rijndael algorithm.",
+        "<b>Steganographic Embedding:</b> Hides encrypted messages inside PNG image pixels.",
+        "<b>Decryption Support:</b> Extracts and decrypts hidden messages using the correct key.",
+        "<b>User-Friendly Interface:</b> Simple web interface to upload images and enter messages.",
+      ],
+      image: "./assets/images/project-13.png",
+      url: "https://stegcrypt.onrender.com",
+    },
+  },
+  "topic-modeling": {
+    id: {
+      title: "Topic Modelling with LDA",
+      category: "Data Science",
+      description:
+        "Proyek analisis topik menggunakan algoritma Latent Dirichlet Allocation (LDA) untuk mengidentifikasi tema-tema utama dalam kumpulan dokumen teks. Implementasi menggunakan Python dengan library scikit-learn dan NLTK.",
+      tech: [
+        "Python",
+        "Scikit-learn",
+        "NLTK",
+        "Pandas",
+        "Matplotlib",
+        "Jupyter Notebook",
+      ],
+      features: [
+        "Preprocessing teks (tokenization, stopword removal)",
+        "Implementasi algoritma LDA untuk topic modeling",
+        "Visualisasi distribusi topik",
+        "Analisis kata kunci per topik",
+        "Export hasil dalam berbagai format",
+        "Dokumentasi lengkap dalam Jupyter Notebook",
+      ],
+      image: "./assets/images/project-10.jpg",
+      url: "https://github.com/gbennnn/topic-modeling-bumn-campus",
+    },
+    en: {
+      title: "Topic Modelling with LDA",
+      category: "Data Science",
+      description:
+        "A topic analysis project using Latent Dirichlet Allocation (LDA) algorithm to identify main themes in text document collections. Implementation using Python with scikit-learn and NLTK libraries.",
+      tech: [
+        "Python",
+        "Scikit-learn",
+        "NLTK",
+        "Pandas",
+        "Matplotlib",
+        "Jupyter Notebook",
+      ],
+      features: [
+        "Text preprocessing (tokenization, stopword removal)",
+        "LDA algorithm implementation for topic modeling",
+        "Topic distribution visualization",
+        "Keyword analysis per topic",
+        "Export results in various formats",
+        "Complete documentation in Jupyter Notebook",
+      ],
+      image: "./assets/images/project-10.jpg",
+      url: "https://github.com/gbennnn/topic-modeling-bumn-campus",
+    },
+  },
+  "des-encryption": {
+    id: {
+      title: "A Simple Data Encryption Standard",
+      category: "Cyber Security",
+      description:
+        "Implementasi sederhana dari algoritma Data Encryption Standard (DES) untuk pembelajaran konsep kriptografi.",
+      tech: ["Python", "Cryptography", "NumPy", "Tkinter"],
+      features: [
+        "Implementasi algoritma DES dari scratch",
+        "Interface GUI untuk mudah digunakan",
+        "Support enkripsi teks",
+        "Dokumentasi algoritma yang lengkap",
+      ],
+      image: "./assets/images/project-11.jpg",
+      url: "https://github.com/gbennnn/data-encryption-standard",
+    },
+    en: {
+      title: "A Simple Data Encryption Standard",
+      category: "Cyber Security",
+      description:
+        "A simple implementation of Data Encryption Standard (DES) algorithm for learning cryptography concepts.",
+      tech: ["Python", "Cryptography", "NumPy", "Tkinter"],
+      features: [
+        "DES algorithm implementation from scratch",
+        "GUI interface for easy use",
+        "Text encryption support",
+        "Complete algorithm documentation",
+      ],
+      image: "./assets/images/project-11.jpg",
+      url: "https://github.com/gbennnn/data-encryption-standard",
+    },
+  },
+  "open-data": {
+    id: {
+      title: "Open Data Contributions",
+      category: "Data Science",
+      description:
+        "Kumpulan dataset yang saya kontribusikan ke platform Kaggle untuk keperluan penelitian dan pembelajaran. Dataset mencakup berbagai domain seperti pendidikan, teknologi, dan sosial.",
+      tech: ["Python", "Pandas", "Scraping", "CSV", "JSON"],
+      features: [
+        "Dataset berkualitas tinggi dan terstruktur",
+        "Dokumentasi metadata yang lengkap",
+        "Format data yang standar dan mudah digunakan",
+        "Covering berbagai domain penelitian",
+        "Regular updates dan maintenance",
+        "Community feedback dan improvement",
+      ],
+      image: "./assets/images/project-12.jpg",
+      url: "https://www.kaggle.com/onydrive/datasets",
+    },
+    en: {
+      title: "Open Data Contributions",
+      category: "Data Science",
+      description:
+        "Collection of datasets I contributed to Kaggle platform for research and learning purposes. Datasets cover various domains such as education, technology, and social.",
+      tech: ["Python", "Pandas", "Scraping", "CSV", "JSON"],
+      features: [
+        "High-quality and structured datasets",
+        "Complete metadata documentation",
+        "Standard and easy-to-use data formats",
+        "Covering various research domains",
+        "Regular updates and maintenance",
+        "Community feedback and improvement",
+      ],
+      image: "./assets/images/project-12.jpg",
+      url: "https://www.kaggle.com/onydrive/datasets",
+    },
+  },
+  "countdown-timer": {
+    id: {
+      title: "Countdown Timer",
+      category: "Web Dev",
+      description:
+        "Web statis sederhana countdown timer yang responsif dan interaktif.",
+      tech: ["HTML5", "CSS3", "JavaScript"],
+      features: [
+        "Interface yang responsif dan modern",
+        "Animasi smooth dan menarik",
+      ],
+      image: "./assets/images/project-1.png",
+      url: "https://countdown-timer-iambeno.vercel.app/",
+    },
+    en: {
+      title: "Countdown Timer",
+      category: "Web Dev",
+      description:
+        "A responsive and interactive web countdown timer application.",
+      tech: ["HTML5", "CSS3", "JavaScript"],
+      features: [
+        "Responsive and modern interface",
+        "Smooth and attractive animations",
+      ],
+      image: "./assets/images/project-1.png",
+      url: "https://countdown-timer-iambeno.vercel.app/",
+    },
+  },
+  "kedai-kopi": {
+    id: {
+      title: "Website Kedai Kopi",
+      category: "Web Dev",
+      description:
+        "Website company profile untuk kedai kopi dengan desain yang menarik dan user-friendly. Menampilkan menu, galeri, dan informasi kontak dengan animasi yang smooth.",
+      tech: ["HTML5", "CSS3", "JavaScript"],
+      features: [
+        "Responsive design untuk semua device",
+        "Interactive menu dengan filter kategori",
+        "Galeri foto",
+        "Smooth scrolling",
+      ],
+      image: "./assets/images/project-2.png",
+      url: "https://kedai-kopi-iambeno.vercel.app/",
+    },
+    en: {
+      title: "Coffee Shop Website",
+      category: "Web Dev",
+      description:
+        "A company profile website for coffee shop with attractive and user-friendly design. Features menu, gallery, and contact information with smooth animations.",
+      tech: ["HTML5", "CSS3", "JavaScript"],
+      features: [
+        "Responsive design for all devices",
+        "Interactive menu with category filter",
+        "Photo gallery",
+        "Smooth scrolling",
+      ],
+      image: "./assets/images/project-2.png",
+      url: "https://kedai-kopi-iambeno.vercel.app/",
+    },
+  },
+  "explore-indonesia": {
+    id: {
+      title: "Explore Indonesia",
+      category: "Web Dev",
+      description:
+        "Website Landing Page untuk menjelajahi destinasi wisata di Indonesia. Menampilkan informasi lengkap tentang tempat wisata, budaya, dan kuliner khas daerah.",
+      tech: ["HTML5", "CSS3", "JavaScript"],
+      features: [
+        "Interactive map dengan marker destinasi",
+        "Slideshow foto destinasi wisata",
+        "Detail informasi setiap destinasi",
+      ],
+      image: "./assets/images/project-3.png",
+      url: "https://travel-lilac-three.vercel.app/",
+    },
+    en: {
+      title: "Explore Indonesia",
+      category: "Web Dev",
+      description:
+        "A travel landing page website to explore tourist destinations in Indonesia. Features complete information about tourist spots, culture, and local cuisine.",
+      tech: ["HTML5", "CSS3", "JavaScript"],
+      features: [
+        "Interactive map with destination markers",
+        "Tourist destination photo slideshow",
+        "Detailed information for each destination",
+      ],
+      image: "./assets/images/project-3.png",
+      url: "https://travel-lilac-three.vercel.app/",
+    },
+  },
+  "minimax-tictactoe": {
+    id: {
+      title: "Minimax Algorithm Tic Tac Toe",
+      category: "AI/ML",
+      description:
+        "Implementasi algoritma Minimax untuk game Tic Tac Toe yang tidak terkalahkan. AI menggunakan algoritma Minimax dengan Alpha-Beta Pruning untuk optimasi performa.",
+      tech: [
+        "JavaScript",
+        "HTML5",
+        "CSS3",
+        "Minimax Algorithm",
+        "Alpha-Beta Pruning",
+      ],
+      features: [
+        "AI yang tidak pernah kalah",
+        "Implementasi Minimax dengan Alpha-Beta Pruning",
+        "Smooth animations dan effects",
+        "Responsive design",
+      ],
+      image: "./assets/images/project-7.png",
+      url: "https://tic-tac-toe-tau-opal.vercel.app/",
+    },
+    en: {
+      title: "Minimax Algorithm Tic Tac Toe",
+      category: "AI/ML",
+      description:
+        "Implementation of Minimax algorithm for unbeatable Tic Tac Toe game. AI uses Minimax algorithm with Alpha-Beta Pruning for performance optimization.",
+      tech: [
+        "JavaScript",
+        "HTML5",
+        "CSS3",
+        "Minimax Algorithm",
+        "Alpha-Beta Pruning",
+      ],
+      features: [
+        "Unbeatable AI",
+        "Minimax implementation with Alpha-Beta Pruning",
+        "Smooth animations and effects",
+        "Responsive design",
+      ],
+      image: "./assets/images/project-7.png",
+      url: "https://tic-tac-toe-tau-opal.vercel.app/",
+    },
+  },
+  "otomatisasi-penjualan": {
+    id: {
+      title: "Otomatisasi Penjualan Kafe",
+      category: "Lainnya",
+      description:
+        "Sistem otomatisasi penjualan untuk kafe yang mengelola menu, pesanan, dan laporan penjualan. Dibangun dengan C++ untuk memahami konsep struktur data yang efisien.",
+      tech: ["C++"],
+      features: [
+        "Manajemen menu dan kategori produk",
+        "Laporan penjualan harian dan bulanan",
+        "Manajemen stok inventory",
+        "Multi-user dengan role management",
+      ],
+      image: "./assets/images/project-4.png",
+      url: "https://github.com/iambeno1/data-structures-cpp/tree/main/Tugas_Besar",
+    },
+    en: {
+      title: "Cafe Sales Automation",
+      category: "Other",
+      description:
+        "A sales automation system for cafes that manages menus, orders, and sales reports. Built with C++ to understand efficient data structure concepts.",
+      tech: ["C++"],
+      features: [
+        "Menu and product category management",
+        "Daily and monthly sales reports",
+        "Inventory stock management",
+      ],
+      image: "./assets/images/project-4.png",
+      url: "https://github.com/iambeno1/data-structures-cpp/tree/main/Tugas_Besar",
+    },
+  },
+  "petal-cafe": {
+    id: {
+      title: "Petal Cafe",
+      category: "Lainnya",
+      description:
+        "Implementasi konsep dasar pemrograman dengan bahasa C++ untuk membuat sistem penualan berbasis CLI",
+      tech: ["C++"],
+      features: [
+        "Implementasi konsep dasar pemrograman",
+        "Sistem penjualan berbasis CLI",
+        "Pengelolaan menu dan kategori produk",
+      ],
+      image: "./assets/images/project-5.jpg",
+      url: "https://github.com/iambeno1/fundamentals-programming-cpp/tree/main/Tubes",
+    },
+    en: {
+      title: "Petal Cafe",
+      category: "Other",
+      description:
+        "Implementation of basic programming concepts using C++ to create a CLI-based sales system.",
+      tech: ["C++"],
+      features: [
+        "Basic programming concepts implementation",
+        "CLI-based sales system",
+        "Menu and product category management",
+      ],
+      image: "./assets/images/project-5.jpg",
+      url: "https://github.com/iambeno1/fundamentals-programming-cpp/tree/main/Tubes",
+    },
+  },
+  "crud-java-gui": {
+    id: {
+      title: "CRUD Java with GUI",
+      category: "Lainnya",
+      description:
+        "Aplikasi desktop Java dengan GUI untuk operasi CRUD (Create, Read, Update, Delete) menggunakan Swing dan database MySQL. Implementasi pattern MVC untuk struktur kode yang rapi.",
+      tech: ["Java", "Swing", "MySQL", "JDBC"],
+      features: [
+        "GUI interface yang intuitif",
+        "Full CRUD operations pada database",
+        "Data validation dan error handling",
+        "Search dan filtering data",
+      ],
+      image: "./assets/images/project-6.png",
+      url: "https://github.com/Turtle-Forge/java-crud",
+    },
+    en: {
+      title: "CRUD Java with GUI",
+      category: "Other",
+      description:
+        "A Java desktop application with GUI for CRUD (Create, Read, Update, Delete) operations using Swing and MySQL database. Implements MVC pattern for clean code structure.",
+      tech: ["Java", "Swing", "MySQL", "JDBC"],
+      features: [
+        "Intuitive GUI interface",
+        "Full CRUD operations on database",
+        "Data validation and error handling",
+        "Search and data filtering",
+      ],
+      image: "./assets/images/project-6.png",
+      url: "https://github.com/Turtle-Forge/java-crud",
+    },
+  },
+  "ffe-app": {
+    id: {
+      title: "FFE App",
+      category: "Lainnya",
+      description:
+        "Ini adalah tugas akhir dari mata kuliah Java OOP yang mengembangkan aplikasi 'Food for Everyone: Aplikasi jual beli makanan antara penjual dan pelanggan' yang menerapkan konsep OOP, dilengkapi dengan Java Swing GUI dan database MySQL.",
+      tech: ["Java", "Swing", "MySQL", "JDBC"],
+      features: [
+        "Aplikasi berbasis desktop dengan GUI",
+        "Fitur login dan registrasi pengguna",
+        "Pengelolaan menu dan kategori produk",
+        "Fitur keranjang belanja dan checkout",
+      ],
+      image: "./assets/images/project-8.png",
+      url: "https://github.com/iambeno1/ffe-app",
+    },
+    en: {
+      title: "FFE App",
+      category: "Other",
+      description:
+        "This is the final project for the Java OOP course, developing the 'Food for Everyone: A food buying and selling application between sellers and customers' that applies OOP concepts, complete with Java Swing GUI and MySQL database.",
+      tech: ["Java", "Swing", "MySQL", "JDBC"],
+      features: [
+        "Desktop application with GUI",
+        "User login and registration features",
+        "Menu and product category management",
+        "Shopping cart and checkout features",
+      ],
+      image: "./assets/images/project-8.png",
+      url: "https://github.com/iambeno1/ffe-app",
+    },
+  },
+  "personal-website": {
+    id: {
+      title: "Personal Website",
+      category: "Web Dev",
+      description:
+        "Website portfolio pribadi yang responsif dengan fitur portfolio detail, dan navigasi yang smooth. Dibangun dengan bootstrap",
+      tech: ["HTML5", "CSS3", "JavaScript", "Responsive Design"],
+      features: [
+        "Fully responsive design",
+        "Portfolio detail pages",
+        "Smooth page transitions",
+      ],
+      image: "./assets/images/project-9.png",
+      url: "https://beno-portfolio.vercel.app/",
+    },
+    en: {
+      title: "Personal Website",
+      category: "Web Dev",
+      description:
+        "A responsive personal portfolio website with detailed portfolio pages and smooth navigation. Built with Bootstrap.",
+      tech: ["HTML5", "CSS3", "JavaScript", "Responsive Design"],
+      features: [
+        "Fully responsive design",
+        "Portfolio detail pages",
+        "Smooth page transitions",
+      ],
+      image: "./assets/images/project-9.png",
+      url: "https://beno-portfolio.vercel.app/",
+    },
+  },
+};
+
+function getPortfolioKey(title) {
+  // Bersihkan title dari whitespace berlebih dan normalize
+  const cleanTitle = title.trim().replace(/\s+/g, " ");
+
+  const mapping = {
+    "Secure Image-based Message Encryption using AES and Steganography":
+      "stegcrypt",
+    "StegCrypt: Sembunyikan Pesan dalam Gambar": "stegcrypt", // Alternative title
+    "Topic Modelling with LDA": "topic-modeling",
+    "A Simple Data Encryption Standard": "des-encryption",
+    "Open Data Contributions": "open-data",
+    "Countdown Timer": "countdown-timer",
+    "Website Kedai Kopi": "kedai-kopi",
+    "Explore Indonesia": "explore-indonesia",
+    "Minimax Algorithm Tic Tac Toe": "minimax-tictactoe",
+    "Otomatisasi Penjualan Kafe": "otomatisasi-penjualan",
+    "Petal Cafe": "petal-cafe",
+    "CRUD Java with GUI": "crud-java-gui",
+    "FFE App": "ffe-app",
+    "Personal Website": "personal-website",
+  };
+
+  return mapping[cleanTitle] || null;
+}
+
+function createFallbackData(title, category, imageUrl, projectUrl) {
+  return {
+    id: {
+      title: title,
+      category: category,
+      description: "Deskripsi portfolio akan segera ditambahkan.",
+      tech: ["Coming Soon"],
+      features: ["Detail fitur akan segera ditambahkan"],
+      image: imageUrl,
+      url: projectUrl,
+    },
+    en: {
+      title: title,
+      category: category,
+      description: "Portfolio description will be added soon.",
+      tech: ["Coming Soon"],
+      features: ["Feature details will be added soon"],
+      image: imageUrl,
+      url: projectUrl,
+    },
+  };
+}
+
+function showPortfolioDetail(portfolioInfo, projectUrl) {
+  // Simpan portfolio info untuk peralihan bahasa
+  currentPortfolioInfo = portfolioInfo;
+  currentPortfolioUrl = projectUrl;
+
+  const currentLang = localStorage.getItem("lang") || "id";
+  const data = portfolioInfo[currentLang];
+
+  // Update konten portfolio detail
+  document.getElementById("portfolio-detail-name").textContent = data.title;
+  document.getElementById("portfolio-detail-category").textContent =
+    data.category;
+  document.getElementById("portfolio-detail-desc").textContent =
+    data.description;
+  document.getElementById("portfolio-detail-image").src = data.image;
+  document.getElementById("portfolio-detail-image").alt = data.title;
+
+  // Update tech stack
+  const techList = document.getElementById("portfolio-detail-tech-list");
+  techList.innerHTML = data.tech
+    .map((tech) => `<span class="tech-tag">${tech}</span>`)
+    .join("");
+
+  // Update features
+  const featuresList = document.getElementById(
+    "portfolio-detail-features-list"
+  );
+  featuresList.innerHTML = data.features
+    .map((feature) => `<li>${feature}</li>`)
+    .join("");
+
+  // Set URL untuk tombol view
+  viewPortfolioBtn.onclick = () => window.open(data.url, "_blank");
+
+  // Show portfolio detail page
+  pages.forEach((page) => page.classList.remove("active"));
+  portfolioDetailTab.classList.add("active");
+
+  // Update navbar
+  navigationLinks.forEach((link) => link.classList.remove("active"));
+  // Tidak ada navbar link untuk portfolio-detail, jadi kita biarkan
+}
+
+// Back to portfolio button
+document.addEventListener("DOMContentLoaded", () => {
+  const backToPortfolioBtn = document.getElementById("back-to-portfolio");
+
+  if (backToPortfolioBtn) {
+    backToPortfolioBtn.addEventListener("click", function () {
+      pages.forEach((page) => page.classList.remove("active"));
+      portfolioTab.classList.add("active");
+
+      // Update navbar
+      navigationLinks.forEach((link) => link.classList.remove("active"));
+      // Cari navbar link yang mengarah ke portfolio
+      navigationLinks.forEach((link) => {
+        if (link.getAttribute("data-page-target") === "portfolio") {
+          link.classList.add("active");
+        }
+      });
+    });
+  }
 });

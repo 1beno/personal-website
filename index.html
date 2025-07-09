@@ -1177,7 +1177,7 @@
                 data-filter-item
                 data-category="cyber security"
               >
-                <a href="https://stegcrypt.onrender.com" target="_blank">
+                <a href="#" data-portfolio-url="https://stegcrypt.onrender.com">
                   <figure class="project-img">
                     <div class="project-item-icon-box">
                       <ion-icon name="eye-outline"></ion-icon>
@@ -1191,7 +1191,8 @@
                   </figure>
 
                   <h3 class="project-title">
-                    StegCrypt: Sembunyikan Pesan dalam Gambar
+                    Secure Image-based Message Encryption using AES and
+                    Steganography
                   </h3>
 
                   <p class="project-category">Cyber Security</p>
@@ -1204,8 +1205,8 @@
                 data-category="data science"
               >
                 <a
-                  href="https://github.com/gbennnn/topic-modeling-bumn-campus"
-                  target="_blank"
+                  href="#"
+                  data-portfolio-url="https://github.com/gbennnn/topic-modeling-bumn-campus"
                 >
                   <figure class="project-img">
                     <div class="project-item-icon-box">
@@ -1231,8 +1232,8 @@
                 data-category="cyber security"
               >
                 <a
-                  href="https://github.com/gbennnn/data-encryption-standard"
-                  target="_blank"
+                  href="#"
+                  data-portfolio-url="https://github.com/gbennnn/data-encryption-standard"
                 >
                   <figure class="project-img">
                     <div class="project-item-icon-box">
@@ -1260,8 +1261,8 @@
                 data-category="data science"
               >
                 <a
-                  href="https://www.kaggle.com/onydrive/datasets"
-                  target="_blank"
+                  href="#"
+                  data-portfolio-url="https://www.kaggle.com/onydrive/datasets"
                 >
                   <figure class="project-img">
                     <div class="project-item-icon-box">
@@ -1287,8 +1288,8 @@
                 data-category="web dev"
               >
                 <a
-                  href="https://countdown-timer-iambeno.vercel.app/"
-                  target="_blank"
+                  href="#"
+                  data-portfolio-url="https://countdown-timer-iambeno.vercel.app/"
                 >
                   <figure class="project-img">
                     <div class="project-item-icon-box">
@@ -1314,8 +1315,8 @@
                 data-category="web dev"
               >
                 <a
-                  href="https://kedai-kopi-iambeno.vercel.app/"
-                  target="_blank"
+                  href="#"
+                  data-portfolio-url="https://kedai-kopi-iambeno.vercel.app/"
                 >
                   <figure class="project-img">
                     <div class="project-item-icon-box">
@@ -1341,8 +1342,8 @@
                 data-category="web dev"
               >
                 <a
-                  href="https://travel-lilac-three.vercel.app/"
-                  target="_blank"
+                  href="#"
+                  data-portfolio-url="https://travel-lilac-three.vercel.app/"
                 >
                   <figure class="project-img">
                     <div class="project-item-icon-box">
@@ -1449,8 +1450,8 @@
                 data-category="ai/ml"
               >
                 <a
-                  href="https://tic-tac-toe-tau-opal.vercel.app/"
-                  target="_blank"
+                  href="#"
+                  data-portfolio-url="https://tic-tac-toe-tau-opal.vercel.app/"
                 >
                   <figure class="project-img">
                     <div class="project-item-icon-box">
@@ -1519,6 +1520,60 @@
               </li>
             </ul>
           </section>
+        </article>
+
+        <!--
+        - #PORTFOLIO DETAIL
+      -->
+
+        <article class="portfolio-detail" data-page="portfolio-detail">
+          <header>
+            <h2
+              class="h2 article-title-portfolio-detail"
+              id="portfolio-detail-title"
+              data-i18n="portfolio_detail_title"
+            >
+              Detail Portfolio
+            </h2>
+          </header>
+
+          <div class="portfolio-detail-content" id="portfolio-detail-content">
+            <div class="portfolio-detail-img">
+              <img id="portfolio-detail-image" src="" alt="" loading="lazy" />
+            </div>
+
+            <div class="portfolio-detail-info">
+              <h3 id="portfolio-detail-name" class="h3"></h3>
+              <p id="portfolio-detail-category" class="portfolio-category"></p>
+
+              <div class="portfolio-detail-description">
+                <h4 class="h4" data-i18n="portfolio_description">Deskripsi</h4>
+                <p id="portfolio-detail-desc"></p>
+              </div>
+
+              <div class="portfolio-detail-tech">
+                <h4 class="h4" data-i18n="portfolio_tech">Teknologi</h4>
+                <div id="portfolio-detail-tech-list" class="tech-tags"></div>
+              </div>
+
+              <div class="portfolio-detail-features">
+                <h4 class="h4" data-i18n="portfolio_features">Fitur Utama</h4>
+                <ul id="portfolio-detail-features-list"></ul>
+              </div>
+
+              <div class="portfolio-detail-actions">
+                <button class="form-btn" id="view-portfolio-btn">
+                  <ion-icon name="open-outline"></ion-icon>
+                  <span data-i18n="portfolio_view">Lihat Portfolio</span>
+                </button>
+
+                <button class="form-btn secondary" id="back-to-portfolio">
+                  <ion-icon name="arrow-back-outline"></ion-icon>
+                  <span data-i18n="portfolio_back">Kembali ke Portfolio</span>
+                </button>
+              </div>
+            </div>
+          </div>
         </article>
 
         <!--
@@ -1767,38 +1822,30 @@
               Formulir Kontak
             </h3>
 
-            <form action="#" class="form" data-form>
-              <div class="input-wrapper">
-                <input
-                  type="text"
-                  name="fullname"
-                  class="form-input"
-                  placeholder="Full Name"
-                  required
-                  data-form-input
-                />
-
-                <input
-                  type="email"
-                  name="email"
-                  class="form-input"
-                  placeholder="Email Address"
-                  required
-                  data-form-input
-                />
-              </div>
+            <form action="#" class="form" data-form id="whatsapp-form">
+              <input
+                type="text"
+                name="fullname"
+                class="form-input"
+                placeholder="Nama Lengkap"
+                required
+                data-form-input
+                data-i18n-placeholder="contact_fullname"
+              />
 
               <textarea
                 name="message"
                 class="form-input"
-                placeholder="Your Message"
+                placeholder="Pesan Anda"
                 required
                 data-form-input
+                data-i18n-placeholder="contact_message"
+                rows="6"
               ></textarea>
 
               <button class="form-btn" type="submit" disabled data-form-btn>
-                <ion-icon name="paper-plane"></ion-icon>
-                <span data-i18n="contact_send">Kirim Pesan</span>
+                <ion-icon name="logo-whatsapp"></ion-icon>
+                <span data-i18n="contact_send">Kirim ke WhatsApp</span>
               </button>
             </form>
           </section>
