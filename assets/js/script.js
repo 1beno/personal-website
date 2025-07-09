@@ -261,6 +261,9 @@ function setLanguage(lang) {
   });
 
   localStorage.setItem("lang", lang);
+
+  // Update portfolio detail jika sedang aktif
+  updatePortfolioDetailLanguage();
 }
 
 // Set bahasa default dari localStorage atau ID
@@ -632,13 +635,77 @@ const backToPortfolioBtn = document.getElementById("back-to-portfolio");
 const portfolioTab = document.querySelector('[data-page="portfolio"]');
 const viewPortfolioBtn = document.getElementById("view-portfolio-btn");
 
+// Variable global untuk menyimpan portfolio yang sedang aktif
+let currentPortfolioInfo = null;
+let currentPortfolioUrl = null;
+
+// Fungsi untuk update bahasa portfolio detail
+function updatePortfolioDetailLanguage() {
+  // Cek apakah halaman portfolio detail sedang aktif
+  const portfolioDetailPage = document.querySelector(
+    '[data-page="portfolio-detail"]'
+  );
+  if (
+    portfolioDetailPage &&
+    portfolioDetailPage.classList.contains("active") &&
+    currentPortfolioInfo
+  ) {
+    // Update konten dengan bahasa baru
+    const currentLang = localStorage.getItem("lang") || "id";
+    const data = currentPortfolioInfo[currentLang];
+
+    if (data) {
+      // Update konten portfolio detail
+      document.getElementById("portfolio-detail-name").textContent = data.title;
+      document.getElementById("portfolio-detail-category").textContent =
+        data.category;
+      document.getElementById("portfolio-detail-desc").textContent =
+        data.description;
+      document.getElementById("portfolio-detail-image").src = data.image;
+      document.getElementById("portfolio-detail-image").alt = data.title;
+
+      // Update tech stack
+      const techList = document.getElementById("portfolio-detail-tech-list");
+      techList.innerHTML = data.tech
+        .map((tech) => `<span class="tech-tag">${tech}</span>`)
+        .join("");
+
+      // Update features
+      const featuresList = document.getElementById(
+        "portfolio-detail-features-list"
+      );
+      featuresList.innerHTML = data.features
+        .map((feature) => `<li>${feature}</li>`)
+        .join("");
+
+      // Set URL untuk tombol view
+      const viewBtn = document.getElementById("view-portfolio-btn");
+      if (viewBtn) {
+        viewBtn.onclick = () => window.open(data.url, "_blank");
+      }
+    }
+  }
+}
+
 // Re-initialize portfolio links setelah DOM loaded
 document.addEventListener("DOMContentLoaded", () => {
   // Re-select portfolio links setelah semua elemen dimuat
   const updatedPortfolioLinks = document.querySelectorAll(".project-item > a");
   initializePortfolioLinks(updatedPortfolioLinks);
+
+  // Juga inisialisasi portfolio links yang sudah ada
+  portfolioLinks.forEach((link) => {
+    // Remove existing event listeners first
+    const newLink = link.cloneNode(true);
+    link.parentNode.replaceChild(newLink, link);
+  });
+
+  // Re-select dan re-attach event listeners
+  const allPortfolioLinks = document.querySelectorAll(".project-item > a");
+  initializePortfolioLinks(allPortfolioLinks);
 });
 
+// Fungsi inisialisasi portfolio links
 function initializePortfolioLinks(links) {
   links.forEach((link) => {
     link.addEventListener("click", function (e) {
@@ -646,7 +713,8 @@ function initializePortfolioLinks(links) {
 
       // Ambil data dari elemen
       const projectItem = this.closest(".project-item");
-      const title = this.querySelector(".project-title").textContent;
+      const titleElement = this.querySelector(".project-title");
+      const title = titleElement.textContent.trim().replace(/\s+/g, " "); // Normalize whitespace
       const category = this.querySelector(".project-category").textContent;
       const imageUrl = this.querySelector("img").src;
       const projectUrl = this.getAttribute("data-portfolio-url") || this.href;
@@ -674,11 +742,12 @@ function initializePortfolioLinks(links) {
 const portfolioData = {
   stegcrypt: {
     id: {
-      title: "StegCrypt: Sembunyikan Pesan dalam Gambar",
+      title:
+        "Secure Image-based Message Encryption using AES and Steganography",
       category: "Cyber Security",
       description:
-        "Aplikasi web yang memungkinkan pengguna untuk menyembunyikan pesan rahasia di dalam gambar menggunakan teknik steganografi LSB (Least Significant Bit). Aplikasi ini juga dilengkapi dengan enkripsi untuk keamanan tambahan.",
-      tech: ["Python", "Flask", "PIL", "Bootstrap", "HTML/CSS", "JavaScript"],
+        "Aplikasi berbasis web yang mengenkripsi pesan teks menggunakan algoritma AES-128 (Rijndael) dan menyisipkan pesan terenkripsi ke dalam gambar PNG menggunakan teknik steganografi LSB (Least Significant Bit). Proyek ini menggabungkan kriptografi dan penyembunyian data untuk menjaga kerahasiaan pesan saat dikirim.",
+      tech: ["Python", "Flask", "PIL", "Tailwind CSS", "AES-128", "JavaScript"],
       features: [
         "Steganografi LSB untuk menyembunyikan pesan dalam gambar",
         "Enkripsi pesan sebelum disembunyikan",
@@ -691,18 +760,17 @@ const portfolioData = {
       url: "https://stegcrypt.onrender.com",
     },
     en: {
-      title: "StegCrypt: Hide Messages in Images",
+      title:
+        "Secure Image-based Message Encryption using AES and Steganography",
       category: "Cyber Security",
       description:
-        "A web application that allows users to hide secret messages inside images using LSB (Least Significant Bit) steganography technique. The application also features encryption for additional security.",
-      tech: ["Python", "Flask", "PIL", "Bootstrap", "HTML/CSS", "JavaScript"],
+        "A web-based application that encrypts textual messages using the AES-128 (Rijndael) algorithm and embeds the encrypted data into PNG images using Least Significant Bit (LSB) steganography. This project ensures secure message transmission by combining cryptography and data hiding techniques.",
+      tech: ["Python", "Flask", "PIL", "Tailwind CSS", "AES-128", "JavaScript"],
       features: [
-        "LSB steganography to hide messages in images",
-        "Message encryption before hiding",
-        "Support various image formats (PNG, JPG, BMP)",
-        "User-friendly interface",
-        "Image preview before and after processing",
-        "Download resulting image with hidden message",
+        "AES-128 Encryption: Converts plaintext into secure ciphertext using Rijndael algorithm.",
+        "Steganographic Embedding: Hides encrypted messages inside PNG image pixels.",
+        "Decryption Support: Extracts and decrypts hidden messages using the correct key.",
+        "User-Friendly Interface: Simple web interface to upload images and enter messages.",
       ],
       image: "./assets/images/project-13.png",
       url: "https://stegcrypt.onrender.com",
@@ -986,36 +1054,196 @@ const portfolioData = {
       url: "https://tic-tac-toe-tau-opal.vercel.app/",
     },
   },
+  "otomatisasi-penjualan": {
+    id: {
+      title: "Otomatisasi Penjualan Kafe",
+      category: "Web Dev",
+      description:
+        "Sistem otomatisasi penjualan untuk kafe yang mengelola menu, pesanan, dan laporan penjualan. Dibangun dengan PHP dan MySQL untuk manajemen data yang efisien.",
+      tech: ["PHP", "MySQL", "HTML5", "CSS3", "JavaScript", "Bootstrap"],
+      features: [
+        "Manajemen menu dan kategori produk",
+        "Sistem pemesanan real-time",
+        "Laporan penjualan harian dan bulanan",
+        "Manajemen stok inventory",
+        "Multi-user dengan role management",
+        "Interface yang user-friendly",
+      ],
+      image: "./assets/images/project-8.png",
+      url: "#",
+    },
+    en: {
+      title: "Cafe Sales Automation",
+      category: "Web Dev",
+      description:
+        "A sales automation system for cafes that manages menus, orders, and sales reports. Built with PHP and MySQL for efficient data management.",
+      tech: ["PHP", "MySQL", "HTML5", "CSS3", "JavaScript", "Bootstrap"],
+      features: [
+        "Menu and product category management",
+        "Real-time ordering system",
+        "Daily and monthly sales reports",
+        "Inventory stock management",
+        "Multi-user with role management",
+        "User-friendly interface",
+      ],
+      image: "./assets/images/project-8.png",
+      url: "#",
+    },
+  },
+  "petal-cafe": {
+    id: {
+      title: "Petal Cafe",
+      category: "Web Dev",
+      description:
+        "Website company profile untuk Petal Cafe dengan desain yang elegan dan modern. Menampilkan informasi cafe, menu, galeri, dan sistem reservasi online.",
+      tech: ["HTML5", "CSS3", "JavaScript", "PHP", "MySQL", "Bootstrap"],
+      features: [
+        "Responsive design dengan tema floral",
+        "Online reservation system",
+        "Interactive menu showcase",
+        "Photo gallery dengan filtering",
+        "Contact form dengan email notification",
+        "SEO optimized structure",
+      ],
+      image: "./assets/images/project-9.png",
+      url: "#",
+    },
+    en: {
+      title: "Petal Cafe",
+      category: "Web Dev",
+      description:
+        "A company profile website for Petal Cafe with elegant and modern design. Features cafe information, menu, gallery, and online reservation system.",
+      tech: ["HTML5", "CSS3", "JavaScript", "PHP", "MySQL", "Bootstrap"],
+      features: [
+        "Responsive design with floral theme",
+        "Online reservation system",
+        "Interactive menu showcase",
+        "Photo gallery with filtering",
+        "Contact form with email notification",
+        "SEO optimized structure",
+      ],
+      image: "./assets/images/project-9.png",
+      url: "#",
+    },
+  },
+  "crud-java-gui": {
+    id: {
+      title: "CRUD Java with GUI",
+      category: "Mobile App",
+      description:
+        "Aplikasi desktop Java dengan GUI untuk operasi CRUD (Create, Read, Update, Delete) menggunakan Swing dan database MySQL. Implementasi pattern MVC untuk struktur kode yang rapi.",
+      tech: ["Java", "Swing", "MySQL", "JDBC", "NetBeans"],
+      features: [
+        "GUI interface yang intuitif",
+        "Full CRUD operations pada database",
+        "Data validation dan error handling",
+        "Search dan filtering data",
+        "Export data ke format CSV/Excel",
+        "MVC architecture pattern",
+      ],
+      image: "./assets/images/project-4.png",
+      url: "#",
+    },
+    en: {
+      title: "CRUD Java with GUI",
+      category: "Mobile App",
+      description:
+        "A Java desktop application with GUI for CRUD (Create, Read, Update, Delete) operations using Swing and MySQL database. Implements MVC pattern for clean code structure.",
+      tech: ["Java", "Swing", "MySQL", "JDBC", "NetBeans"],
+      features: [
+        "Intuitive GUI interface",
+        "Full CRUD operations on database",
+        "Data validation and error handling",
+        "Search and data filtering",
+        "Export data to CSV/Excel format",
+        "MVC architecture pattern",
+      ],
+      image: "./assets/images/project-4.png",
+      url: "#",
+    },
+  },
+  "ffe-app": {
+    id: {
+      title: "FFE App",
+      category: "Mobile App",
+      description:
+        "Aplikasi mobile untuk manajemen Form, Function, dan Event (FFE) dengan fitur real-time synchronization. Dibangun menggunakan Flutter untuk cross-platform compatibility.",
+      tech: ["Flutter", "Dart", "Firebase", "SQLite", "REST API"],
+      features: [
+        "Cross-platform (iOS & Android)",
+        "Real-time data synchronization",
+        "Offline mode dengan local storage",
+        "Push notifications",
+        "User authentication & authorization",
+        "Material Design UI/UX",
+      ],
+      image: "./assets/images/project-5.jpg",
+      url: "#",
+    },
+    en: {
+      title: "FFE App",
+      category: "Mobile App",
+      description:
+        "A mobile application for Form, Function, and Event (FFE) management with real-time synchronization features. Built using Flutter for cross-platform compatibility.",
+      tech: ["Flutter", "Dart", "Firebase", "SQLite", "REST API"],
+      features: [
+        "Cross-platform (iOS & Android)",
+        "Real-time data synchronization",
+        "Offline mode with local storage",
+        "Push notifications",
+        "User authentication & authorization",
+        "Material Design UI/UX",
+      ],
+      image: "./assets/images/project-5.jpg",
+      url: "#",
+    },
+  },
+  "personal-website": {
+    id: {
+      title: "Personal Website",
+      category: "Web Dev",
+      description:
+        "Website portfolio pribadi yang responsif dengan fitur multi-bahasa, portfolio detail, dan navigasi yang smooth. Dibangun dengan vanilla JavaScript dan CSS modern.",
+      tech: ["HTML5", "CSS3", "JavaScript", "Responsive Design", "i18n"],
+      features: [
+        "Fully responsive design",
+        "Multi-language support (ID/EN)",
+        "Portfolio detail pages",
+        "Smooth page transitions",
+        "SEO optimized",
+        "Modern CSS Grid & Flexbox",
+      ],
+      image: "./assets/images/project-6.png",
+      url: "#",
+    },
+    en: {
+      title: "Personal Website",
+      category: "Web Dev",
+      description:
+        "A responsive personal portfolio website with multi-language features, portfolio details, and smooth navigation. Built with vanilla JavaScript and modern CSS.",
+      tech: ["HTML5", "CSS3", "JavaScript", "Responsive Design", "i18n"],
+      features: [
+        "Fully responsive design",
+        "Multi-language support (ID/EN)",
+        "Portfolio detail pages",
+        "Smooth page transitions",
+        "SEO optimized",
+        "Modern CSS Grid & Flexbox",
+      ],
+      image: "./assets/images/project-6.png",
+      url: "#",
+    },
+  },
 };
 
-// Event listener untuk portfolio links (fallback untuk yang sudah ada)
-portfolioLinks.forEach((link) => {
-  link.addEventListener("click", function (e) {
-    e.preventDefault();
-
-    // Ambil data dari elemen
-    const projectItem = this.closest(".project-item");
-    const title = this.querySelector(".project-title").textContent;
-    const category = this.querySelector(".project-category").textContent;
-    const imageUrl = this.querySelector("img").src;
-    const projectUrl = this.getAttribute("data-portfolio-url") || this.href;
-
-    // Cari data portfolio berdasarkan title atau buat mapping
-    let portfolioKey = getPortfolioKey(title);
-    let portfolioInfo = portfolioData[portfolioKey];
-
-    if (!portfolioInfo) {
-      // Fallback jika data tidak ditemukan
-      portfolioInfo = createFallbackData(title, category, imageUrl, projectUrl);
-    }
-
-    showPortfolioDetail(portfolioInfo, projectUrl);
-  });
-});
-
 function getPortfolioKey(title) {
+  // Bersihkan title dari whitespace berlebih dan normalize
+  const cleanTitle = title.trim().replace(/\s+/g, " ");
+
   const mapping = {
-    "StegCrypt: Sembunyikan Pesan dalam Gambar": "stegcrypt",
+    "Secure Image-based Message Encryption using AES and Steganography":
+      "stegcrypt",
+    "StegCrypt: Sembunyikan Pesan dalam Gambar": "stegcrypt", // Alternative title
     "Topic Modelling with LDA": "topic-modeling",
     "A Simple Data Encryption Standard": "des-encryption",
     "Open Data Contributions": "open-data",
@@ -1023,26 +1251,33 @@ function getPortfolioKey(title) {
     "Website Kedai Kopi": "kedai-kopi",
     "Explore Indonesia": "explore-indonesia",
     "Minimax Algorithm Tic Tac Toe": "minimax-tictactoe",
+    "Otomatisasi Penjualan Kafe": "otomatisasi-penjualan",
+    "Petal Cafe": "petal-cafe",
+    "CRUD Java with GUI": "crud-java-gui",
+    "FFE App": "ffe-app",
+    "Personal Website": "personal-website",
   };
-  return mapping[title] || null;
+
+  return mapping[cleanTitle] || null;
 }
 
 function createFallbackData(title, category, imageUrl, projectUrl) {
-  const currentLang = localStorage.getItem("lang") || "id";
   return {
-    [currentLang]: {
+    id: {
       title: title,
       category: category,
-      description:
-        currentLang === "id"
-          ? "Deskripsi portfolio akan segera ditambahkan."
-          : "Portfolio description will be added soon.",
+      description: "Deskripsi portfolio akan segera ditambahkan.",
       tech: ["Coming Soon"],
-      features: [
-        currentLang === "id"
-          ? "Detail fitur akan segera ditambahkan"
-          : "Feature details will be added soon",
-      ],
+      features: ["Detail fitur akan segera ditambahkan"],
+      image: imageUrl,
+      url: projectUrl,
+    },
+    en: {
+      title: title,
+      category: category,
+      description: "Portfolio description will be added soon.",
+      tech: ["Coming Soon"],
+      features: ["Feature details will be added soon"],
       image: imageUrl,
       url: projectUrl,
     },
@@ -1050,6 +1285,10 @@ function createFallbackData(title, category, imageUrl, projectUrl) {
 }
 
 function showPortfolioDetail(portfolioInfo, projectUrl) {
+  // Simpan portfolio info untuk peralihan bahasa
+  currentPortfolioInfo = portfolioInfo;
+  currentPortfolioUrl = projectUrl;
+
   const currentLang = localStorage.getItem("lang") || "id";
   const data = portfolioInfo[currentLang];
 
