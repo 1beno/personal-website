@@ -740,6 +740,57 @@ function initializePortfolioLinks(links) {
 
 // Data portfolio dengan deskripsi lengkap
 const portfolioData = {
+  "ai-powered-pdf-assessment": {
+    id: {
+      title: "AI-Powered PDF Assessment System",
+      category: "AI/ML",
+      description:
+        "Sistem penilaian otomatis untuk tugas mahasiswa dalam format PDF, menggunakan AI dan NLP untuk menganalisis kualitas jawaban, grammar, struktur, dan referensi, serta menghasilkan feedback dan nilai akhir secara efisien.",
+      tech: [
+        "Python",
+        "NLP",
+        "OpenAI API",
+        "Flask",
+        "PyMuPDF",
+        "HTML",
+        "Tailwind CSS",
+      ],
+      features: [
+        "Ekstraksi teks otomatis dari file PDF",
+        "Analisis grammar dan struktur jawaban",
+        "Kustomisasi parameter penilaian",
+        "Pencocokan makna jawaban dengan soal",
+        "Feedback otomatis dan laporan penilaian",
+      ],
+      image: "./assets/images/project-16.png",
+      url: "https://github.com/gbennnn/grader-ai",
+    },
+    en: {
+      title: "AI-Powered PDF Assessment System",
+      category: "AI/ML",
+      description:
+        "An automated assessment system for student assignments in PDF format, utilizing AI and NLP to analyze answer quality, grammar, structure, and references, while efficiently generating feedback and final grades.",
+      tech: [
+        "Python",
+        "NLP",
+        "OpenAI API",
+        "Flask",
+        "PyMuPDF",
+        "HTML",
+        "Tailwind CSS",
+      ],
+      features: [
+        "Automatic text extraction from PDF files",
+        "Grammar and structure analysis of answers",
+        "Customizable assessment parameters",
+        "Semantic matching of answers with questions",
+        "Automatic feedback and assessment reports",
+      ],
+      image: "./assets/images/project-16.png",
+      url: "https://github.com/gbennnn/grader-ai",
+    },
+  },
+
   "sentiment-analysis": {
     id: {
       title: "Sentiment Analysis on APERTI BUMN University Reviews",
@@ -1292,6 +1343,7 @@ function getPortfolioKey(title) {
   const cleanTitle = title.trim().replace(/\s+/g, " ");
 
   const mapping = {
+    "AI-Powered PDF Assessment System": "ai-powered-pdf-assessment",
     "Sentiment Analysis on APERTI BUMN University Reviews":
       "sentiment-analysis",
     "IoT - Fire and Smoke Detector System": "fire-and-smoke-detector",
