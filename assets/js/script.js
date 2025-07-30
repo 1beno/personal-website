@@ -415,29 +415,34 @@ const blogTab = document.querySelector('[data-page="blog"]');
 // Simpan data blog (bisa juga ambil dari HTML jika mau)
 const blogData = [
   {
-    title: "Web Pertamaku",
+    title: "Pengalaman Jadi Asisten Praktikum OOP Java",
     content: `
-              <p>Semua orang punya “pertama kali”-nya. Dan untukku, momen itu datang ketika aku akhirnya memberanikan diri untuk bikin website pertamaku sendiri.</p> 
-          
-              <p>Waktu itu, aku lagi iseng nonton YouTube dan nemu satu tutorial membuat website sederhana dengan HTML dan CSS. Kelihatannya seru, jadi aku pikir: <i>“Kenapa nggak coba aja?”</i></p>
+              <p>Saya mau cerita sedikit tentang salah satu pengalaman paling seru (dan kadang bikin pusing) selama kuliah: jadi asisten praktikum (asprak) di mata kuliah <i>Object-Oriented Programming</i> alias OOP Java.</p>
 
-              <p>Awalnya, aku nggak tahu harus mulai dari mana. Buka VS Code aja masih bingung harus ngetik apa. Tapi setelah ikutin step-by-step di tutorialnya, pelan-pelan mulai kebentuk: dari bikin struktur HTML-nya, kasih sentuhan gaya dengan CSS, sampai akhirnya coba bikin navigasi dan tombol yang bisa diklik pakai JavaScript.</p>
+              <p>Jujur, awalnya saya nggak nyangka bakal dapet kesempatan ini. Dulu waktu masih duduk di bangku semester awal, saya juga pernah duduk di kursi peserta praktikum, ngerjain soal-soal OOP yang kadang bikin kepala pusing. Tapi siapa sangka, sekarang bisa bantuin teman-teman angkatan di bawah saya buat ngerti konsep-konsep OOP kayak <i>encapsulation, inheritance, polymorphism, abstraction</i> dan kawan-kawannya.</p>
 
-              <p>
-              Tantangan terbesarnya? CSS! 😵‍💫<br>
-              Bayangin aja, cuma mau bikin satu bagian rata tengah, bisa ngabisin waktu hampir sejam. Tapi dari situ aku belajar pentingnya sabar (dan Googling 😆).
-              </p>
+              <p>Tugas jadi asprak itu lumayan beragam. Mulai dari bantuin mahasiswa yang kebingungan pas ngerjain modul, ngejelasin materi yang belum mereka pahami, sampai koreksi laporan dan kode program mereka. Kadang harus jawab pertanyaan yang sama berkali-kali, tapi ya namanya juga belajar, saya juga dulu sering nanya hal yang sama ke asprak sy dulu😅</p>
 
-              <p>Di tengah proses, aku juga kenalan sama yang namanya Bootstrap. Framework ini bener-bener nyelametin hidup. Banyak komponen yang tinggal pakai aja, dari navbar sampai card. Jadi tampilannya nggak terlalu kaku dan lebih modern.</p>
+              <p>Yang paling saya suka dari jadi asprak adalah momen ketika mahasiswa yang awalnya nggak paham, tiba-tiba bilang, "<i>Ohhh, jadi kayak gitu toh!</i>" Rasanya puas banget bisa bantu mereka 'ngeh' sama konsep yang sebelumnya kerasa abstrak.</p>
 
-              <p>Meski hasil akhirnya jauh dari kata sempurna, tapi rasanya puas banget. Website itu jadi semacam “monumen” pertama dalam perjalanan belajarku sebagai calon web developer. Dari situ juga aku makin semangat buat belajar lebih dalam, dan mulai explore hal-hal lain kayak Laravel, Tailwind, sampai backend pakai PHP dan Python.</p>
+              <p>Tapi ya nggak selalu mulus juga. Ada kalanya capek banget karena harus ngoreksi banyak laporan sambil tetap ngejar deadline tugas kuliah sendiri. Belum lagi kalau ada mahasiswa yang suka ngeluh, padahal belum usaha maksimal. Tapi dari situ saya belajar gimana caranya sabar, ngatur waktu, dan berkomunikasi dengan baik.</p>
 
-              <p>Sekarang, kalau aku lihat kembali website pertama itu, mungkin bakal sedikit ketawa sendiri. Tapi justru dari situ semuanya mulai.</p>
+              <p>Intinya, jadi asisten praktikum itu pengalaman yang ngasih saya banyak pelajaran, bukan cuma soal ngoding, tapi juga soal kerja tim, tanggung jawab, dan gimana jadi orang yang bisa diandalkan. Dan kalau ditanya, "Mau lagi nggak?" Jawabannya: MAU! Karena meskipun capek, tapi seru dan bener-bener bikin saya berkembang.</p>
 
-              <p>Kalau kamu juga lagi bingung mau mulai belajar web dari mana, coba aja langsung praktek. Cari tutorial yang cocok, buka code editor, dan mulai ngetik. Karena percaya deh, belajar koding paling asik kalau langsung dicoba.</p>
-    
+              <p>Sekian dari saya, tetap semangat!!!. Jangan cuma jago koding, tapi juga jago bantu orang lain ngerti. Karena ilmu itu makin mantap justru saat kita bisa ngajarin ke orang lain 😉. Terima kasih!</p>              
               `,
-    image: "./assets/images/blog-1.jpg",
+    image: "./assets/images/blog-8.jpg",
+  },
+  {
+    title: "Menang Proyek Terbaik di CSXHIBIT 2024/2025!",
+    content: `
+              <p>Beberapa waktu lalu, saya dan tim kecil saya baru aja menyelesaikan salah satu proyek paling seru selama kuliah: sistem deteksi asap dan api berbasis IoT. Proyek ini kami buat sebagai tugas besar untuk mata kuliah Mikrokontroller dan Internet of Things (IoT) di semester 6.</p>
+              
+              <p>Awalnya sih kami cuma ingin bikin sesuatu yang fungsional dan bisa bermanfaat, tapi ternyata di luar dugaan, proyek ini malah terpilih sebagai Proyek Terbaik di acara CSXHIBIT, yaitu pameran tugas besar mahasiswa jurusan Ilmu Komputer Universitas Pertamina. Jujur, rasanya campur aduk antara kaget, senang, dan bangga. Proyek ini sendiri pakai sensor MQ2 dan flame sensor yang dipasang di ESP32, lalu terhubung ke sistem berbasis web untuk menampilkan notifikasi secara real-time kalau terdeteksi asap atau api. Kami juga tambahkan fitur lokasi pakai Google Maps supaya pengguna bisa tahu titik kejadian kebakaran secara langsung.</p>
+
+              <p>Selama ngerjain proyek ini, kami ngalamin banyak trial-error, mulai dari sensor yang terlalu sensitif sampai debugging sistem yang kadang bikin frustrasi. Tapi dari situ juga kami belajar banyak hal, terutama pentingnya kerja sama tim dan komunikasi. Kemenangan ini jadi semacam bukti bahwa kerja keras, walaupun penuh drama, bisa ngasih hasil yang manis. Dan yang paling penting, proyek ini nggak berhenti di sini, kami masih punya banyak ide untuk pengembangannya ke depan. Jadi ya, semoga ini bukan akhir dari perjalanan, tapi justru langkah awal buat bikin lebih banyak karya teknologi yang bermanfaat.</p>
+              `,
+    image: "./assets/images/blog-7a.jpg",
   },
   {
     title: "Menjaga Bahasa Ibu Lewat Teknologi",
@@ -459,25 +464,21 @@ const blogData = [
               `,
     image: "./assets/images/blog-2.jpg",
   },
+
   {
-    title: "Ngoding Harus Hafal?",
+    title: "Agen AI Tak Terkalahkan dengan Algoritma Minimax",
     content: `
-              <p>Waktu pertama kali belajar programming, saya sempat merasa harus hafal semua kode kalau mau jadi jago. Rasanya kayak belajar matematika campur bahasa asing—panik kalau lupa titik koma, bingung kalau salah indentasi, belum lagi nama-nama fungsi yang kadang susah diingat.</p>
+              <p>Saya pertama kali mengenal algoritma <i>minimax</i> saat mengikuti mata kuliah Artificial Intelligence di kampus. Saat itu, kami belajar bagaimana komputer bisa mengambil keputusan optimal dalam permainan dua pemain, seperti catur atau Tic Tac Toe. Dari situ, saya tertarik mencoba menerapkannya secara langsung dalam sebuah proyek kecil yang sederhana namun cukup menantang: membuat agen AI yang tak terkalahkan dalam permainan Tic Tac Toe.</p>
 
-              <p>Tapi makin lama belajar, saya mulai sadar satu hal penting: menghafal semua sintaks itu bukan kunci utama untuk jadi programmer yang baik.</p>
+              <p>Tic Tac Toe memang kelihatannya sepele, papan 3x3, dua simbol, dan aturan yang sangat sederhana. Tapi justru karena kesederhanaannya itulah, game ini cocok sebagai latihan implementasi algoritma minimax. Algoritma ini bekerja dengan mengevaluasi semua kemungkinan langkah dari posisi sekarang hingga akhir permainan, lalu memilih langkah terbaik berdasarkan asumsi bahwa lawan juga akan bermain secara optimal. Intinya, AI akan mencari cara untuk memaksimalkan peluang menang, sambil meminimalkan kemungkinan kalah.</p>
 
-              <p>Dunia programming itu luas banget. Ada Python, JavaScript, PHP, C++, Java, dan masih banyak lagi. Setiap bahasa punya ciri khasnya masing-masing, kayak gaya bicara yang beda-beda di tiap daerah.</p>
-              <p>Dan kalau kamu pikir kamu harus menghafal semuanya, bisa-bisa waktu kamu habis cuma buat <i>ngafal</i> tanpa pernah benar-benar <i>paham</i>. Padahal, yang lebih penting dari hafalan adalah pemahaman terhadap dasar-dasarnya. Seperti bagaimana program dijalankan dari awal sampai akhir, apa itu variabel, fungsi, kondisi, dan perulangan, serta bagaimana cara berpikir secara logis untuk menyelesaikan sebuah masalah. Dan ketika sudah mulai belajar tentang OOP (Object-Oriented Programming), memahami konsep seperti inheritance, encapsulation, dan polymorphism justru jauh lebih bermanfaat daripada tahu semua perintah dalam satu bahasa.</p>
+              <p>Saya membangun game ini sepenuhnya menggunakan HTML, CSS, dan JavaScript, jadi semuanya berjalan langsung di browser tanpa perlu backend atau instalasi tambahan. Permainan Tic Tac Toe yang sederhana menjadi media yang pas untuk mengimplementasikan minimax, karena skenario langkah-langkahnya terbatas dan bisa diolah secara rekursif.</p>
 
-              <p>Saya sendiri pertama kali belajar bahasa C++. Bahasa ini memang cukup “keras” tapi sangat membantu membentuk pola pikir yang sistematis dan rapi. Struktur C++ yang ketat dan pendekatan yang dekat dengan sistem membuat saya terbiasa berpikir secara detail. Namun, ketika saya beralih ke Java yang lebih berorientasi objek dan punya struktur yang lebih besar, saya tidak merasa mulai dari nol. Karena saya sudah memahami konsep-konsep dasar pemrograman, saya hanya perlu menyesuaikan diri dengan sintaks dan gaya penulisan Java. Dan kalaupun saya lupa sesuatu? Tinggal buka dokumentasi, cari di internet, atau tanya ke ChatGPT.</p>
-
-              <p>Jadi, apakah perlu hafal semua sintaks? Jawaban singkatnya: <i>tidak harus</i>. Memang, punya ingatan yang baik itu membantu, tapi yang lebih penting adalah punya pemahaman yang kuat. Karena saat kamu mengerti bagaimana dan kenapa sesuatu bekerja, kamu bisa menulis kode di bahasa apa pun. Jadi programmer bukan soal lomba hafalan, tapi soal bagaimana menyelesaikan masalah dengan logika yang tepat.</p>
-
-              <p>Kalau kamu sedang belajar dan merasa kesulitan menghafal semua sintaks, santai aja. Fokuslah untuk membangun fondasi logika dan pemahaman dasar yang kuat. Pahami alur program dan cara berpikir sebagai seorang developer. Sisanya? Bisa kamu pelajari sambil jalan 😉</p>
-
-            `,
-    image: "./assets/images/blog-3.jpg",
+              <p>Setelah AI selesai, saya mencobanya sendiri. Hasilnya? AI ini benar-benar sulit dikalahkan. Bahkan ketika saya bermain sebaik mungkin, hasil terbaik saya hanya seri. Proyek ini membuat saya semakin menghargai kekuatan logika dalam pengembangan game dan algoritma pencarian keputusan. Kalau kamu penasaran dan ingin mencobanya sendiri, kamu bisa memainkan gamenya langsung <a href="https://tic-tac-toe-tau-opal.vercel.app/" target="_blank" style="color: hsl(45, 100%, 72%);">disini</a>.</p>
+              `,
+    image: "./assets/images/blog-6.jpg",
   },
+
   {
     title: "Mengenalkan Python ke Adik-Adik SMA",
     content: `
@@ -495,6 +496,7 @@ const blogData = [
             `,
     image: "./assets/images/blog-4.jpg",
   },
+
   {
     title: "Mengakses Lokasi dan Kamera Target via Link",
     content: `
@@ -519,18 +521,51 @@ const blogData = [
               `,
     image: "./assets/images/blog-5.jpg",
   },
+
   {
-    title: "Agen AI Tak Terkalahkan dengan Algoritma Minimax",
+    title: "Ngoding Harus Hafal?",
     content: `
-              <p>Saya pertama kali mengenal algoritma <i>minimax</i> saat mengikuti mata kuliah Artificial Intelligence di kampus. Saat itu, kami belajar bagaimana komputer bisa mengambil keputusan optimal dalam permainan dua pemain, seperti catur atau Tic Tac Toe. Dari situ, saya tertarik mencoba menerapkannya secara langsung dalam sebuah proyek kecil yang sederhana namun cukup menantang: membuat agen AI yang tak terkalahkan dalam permainan Tic Tac Toe.</p>
+              <p>Waktu pertama kali belajar programming, saya sempat merasa harus hafal semua kode kalau mau jadi jago. Rasanya kayak belajar matematika campur bahasa asing—panik kalau lupa titik koma, bingung kalau salah indentasi, belum lagi nama-nama fungsi yang kadang susah diingat.</p>
 
-              <p>Tic Tac Toe memang kelihatannya sepele, papan 3x3, dua simbol, dan aturan yang sangat sederhana. Tapi justru karena kesederhanaannya itulah, game ini cocok sebagai latihan implementasi algoritma minimax. Algoritma ini bekerja dengan mengevaluasi semua kemungkinan langkah dari posisi sekarang hingga akhir permainan, lalu memilih langkah terbaik berdasarkan asumsi bahwa lawan juga akan bermain secara optimal. Intinya, AI akan mencari cara untuk memaksimalkan peluang menang, sambil meminimalkan kemungkinan kalah.</p>
+              <p>Tapi makin lama belajar, saya mulai sadar satu hal penting: menghafal semua sintaks itu bukan kunci utama untuk jadi programmer yang baik.</p>
 
-              <p>Saya membangun game ini sepenuhnya menggunakan HTML, CSS, dan JavaScript, jadi semuanya berjalan langsung di browser tanpa perlu backend atau instalasi tambahan. Permainan Tic Tac Toe yang sederhana menjadi media yang pas untuk mengimplementasikan minimax, karena skenario langkah-langkahnya terbatas dan bisa diolah secara rekursif.</p>
+              <p>Dunia programming itu luas banget. Ada Python, JavaScript, PHP, C++, Java, dan masih banyak lagi. Setiap bahasa punya ciri khasnya masing-masing, kayak gaya bicara yang beda-beda di tiap daerah.</p>
+              <p>Dan kalau kamu pikir kamu harus menghafal semuanya, bisa-bisa waktu kamu habis cuma buat <i>ngafal</i> tanpa pernah benar-benar <i>paham</i>. Padahal, yang lebih penting dari hafalan adalah pemahaman terhadap dasar-dasarnya. Seperti bagaimana program dijalankan dari awal sampai akhir, apa itu variabel, fungsi, kondisi, dan perulangan, serta bagaimana cara berpikir secara logis untuk menyelesaikan sebuah masalah. Dan ketika sudah mulai belajar tentang OOP (Object-Oriented Programming), memahami konsep seperti inheritance, encapsulation, dan polymorphism justru jauh lebih bermanfaat daripada tahu semua perintah dalam satu bahasa.</p>
 
-              <p>Setelah AI selesai, saya mencobanya sendiri. Hasilnya? AI ini benar-benar sulit dikalahkan. Bahkan ketika saya bermain sebaik mungkin, hasil terbaik saya hanya seri. Proyek ini membuat saya semakin menghargai kekuatan logika dalam pengembangan game dan algoritma pencarian keputusan. Kalau kamu penasaran dan ingin mencobanya sendiri, kamu bisa memainkan gamenya langsung <a href="https://tic-tac-toe-tau-opal.vercel.app/" target="_blank" style="color: hsl(45, 100%, 72%);">disini</a>.</p>
+              <p>Saya sendiri pertama kali belajar bahasa C++. Bahasa ini memang cukup “keras” tapi sangat membantu membentuk pola pikir yang sistematis dan rapi. Struktur C++ yang ketat dan pendekatan yang dekat dengan sistem membuat saya terbiasa berpikir secara detail. Namun, ketika saya beralih ke Java yang lebih berorientasi objek dan punya struktur yang lebih besar, saya tidak merasa mulai dari nol. Karena saya sudah memahami konsep-konsep dasar pemrograman, saya hanya perlu menyesuaikan diri dengan sintaks dan gaya penulisan Java. Dan kalaupun saya lupa sesuatu? Tinggal buka dokumentasi, cari di internet, atau tanya ke ChatGPT.</p>
+
+              <p>Jadi, apakah perlu hafal semua sintaks? Jawaban singkatnya: <i>tidak harus</i>. Memang, punya ingatan yang baik itu membantu, tapi yang lebih penting adalah punya pemahaman yang kuat. Karena saat kamu mengerti bagaimana dan kenapa sesuatu bekerja, kamu bisa menulis kode di bahasa apa pun. Jadi programmer bukan soal lomba hafalan, tapi soal bagaimana menyelesaikan masalah dengan logika yang tepat.</p>
+
+              <p>Kalau kamu sedang belajar dan merasa kesulitan menghafal semua sintaks, santai aja. Fokuslah untuk membangun fondasi logika dan pemahaman dasar yang kuat. Pahami alur program dan cara berpikir sebagai seorang developer. Sisanya? Bisa kamu pelajari sambil jalan 😉</p>
+
+            `,
+    image: "./assets/images/blog-3.jpg",
+  },
+
+  {
+    title: "Web Pertamaku",
+    content: `
+              <p>Semua orang punya “pertama kali”-nya. Dan untukku, momen itu datang ketika aku akhirnya memberanikan diri untuk bikin website pertamaku sendiri.</p> 
+          
+              <p>Waktu itu, aku lagi iseng nonton YouTube dan nemu satu tutorial membuat website sederhana dengan HTML dan CSS. Kelihatannya seru, jadi aku pikir: <i>“Kenapa nggak coba aja?”</i></p>
+
+              <p>Awalnya, aku nggak tahu harus mulai dari mana. Buka VS Code aja masih bingung harus ngetik apa. Tapi setelah ikutin step-by-step di tutorialnya, pelan-pelan mulai kebentuk: dari bikin struktur HTML-nya, kasih sentuhan gaya dengan CSS, sampai akhirnya coba bikin navigasi dan tombol yang bisa diklik pakai JavaScript.</p>
+
+              <p>
+              Tantangan terbesarnya? CSS! 😵‍💫<br>
+              Bayangin aja, cuma mau bikin satu bagian rata tengah, bisa ngabisin waktu hampir sejam. Tapi dari situ aku belajar pentingnya sabar (dan Googling 😆).
+              </p>
+
+              <p>Di tengah proses, aku juga kenalan sama yang namanya Bootstrap. Framework ini bener-bener nyelametin hidup. Banyak komponen yang tinggal pakai aja, dari navbar sampai card. Jadi tampilannya nggak terlalu kaku dan lebih modern.</p>
+
+              <p>Meski hasil akhirnya jauh dari kata sempurna, tapi rasanya puas banget. Website itu jadi semacam “monumen” pertama dalam perjalanan belajarku sebagai calon web developer. Dari situ juga aku makin semangat buat belajar lebih dalam, dan mulai explore hal-hal lain kayak Laravel, Tailwind, sampai backend pakai PHP dan Python.</p>
+
+              <p>Sekarang, kalau aku lihat kembali website pertama itu, mungkin bakal sedikit ketawa sendiri. Tapi justru dari situ semuanya mulai.</p>
+
+              <p>Kalau kamu juga lagi bingung mau mulai belajar web dari mana, coba aja langsung praktek. Cari tutorial yang cocok, buka code editor, dan mulai ngetik. Karena percaya deh, belajar koding paling asik kalau langsung dicoba.</p>
+    
               `,
-    image: "./assets/images/blog-6.jpg",
+    image: "./assets/images/blog-1.jpg",
   },
 ];
 
