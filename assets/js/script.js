@@ -75,6 +75,10 @@ const translations = {
     exp_4_year: "April 2021 — April 2022",
     exp_4_desc:
       "Memimpin organisasi siswa, mengoordinasikan acara sekolah, dan menjembatani komunikasi antara siswa dan administrasi sekolah.",
+    exp_5_title: "Asisten Praktikum Pembejaran Mesin",
+    exp_5_year: "Februari 2026 — Juli 2026",
+    exp_5_desc:
+      "Bertanggung jawab dalam memberikan penjelasan materi, membantu menyelesaikan permasalahan praktikum, serta mengevaluasi tugas dan proyek mahasiswa secara objektif.",
     resume_techstack: "Teknologi",
 
     // PORTFOLIO
@@ -176,6 +180,10 @@ const translations = {
     exp_4_year: "April 2021 — April 2022",
     exp_4_desc:
       "Led the student organization, coordinated school events, and bridged communication between students and school administration.",
+    exp_5_title: "Teaching Assistant for Machine Learning",
+    exp_5_year: "February 2026 — July 2026",
+    exp_5_desc:
+      "Responsible for explaining material, helping solve practical problems, and objectively evaluating student assignments and projects.",
     resume_techstack: "Tech Stack",
 
     // PORTFOLIO
