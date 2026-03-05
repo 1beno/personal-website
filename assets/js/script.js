@@ -60,11 +60,11 @@ const translations = {
 
     resume_experience: "Pengalaman",
     exp_1_title: "Kepala Departemen Internal HMIK Universitas Pertamina",
-    exp_1_year: "Februari 2025 — Sekarang",
+    exp_1_year: "December 2024 — November 2025",
     exp_1_desc:
       "Memimpin tim dalam menyusun agenda internal himpunan, monitoring kinerja divisi, dan membangun kultur kerja yang kolaboratif dan produktif di lingkungan organisasi.",
     exp_2_title: "Asisten Praktikum Object Oriented Programming Java",
-    exp_2_year: "Februari 2025 — Sekarang",
+    exp_2_year: "Februari 2025 — Juli 2025",
     exp_2_desc:
       "Bertanggung jawab dalam memberikan penjelasan materi, membantu menyelesaikan permasalahan praktikum, serta mengevaluasi tugas dan proyek mahasiswa secara objektif.",
     exp_3_title: "Anggota Komite Penerjemah Indonesia-Meher-Woirata",
@@ -75,6 +75,10 @@ const translations = {
     exp_4_year: "April 2021 — April 2022",
     exp_4_desc:
       "Memimpin organisasi siswa, mengoordinasikan acara sekolah, dan menjembatani komunikasi antara siswa dan administrasi sekolah.",
+    exp_5_title: "Asisten Praktikum Pembejaran Mesin",
+    exp_5_year: "Februari 2026 — Juli 2026",
+    exp_5_desc:
+      "Bertanggung jawab dalam memberikan penjelasan materi, membantu menyelesaikan permasalahan praktikum, serta mengevaluasi tugas dan proyek mahasiswa secara objektif.",
     resume_techstack: "Teknologi",
 
     // PORTFOLIO
@@ -161,11 +165,11 @@ const translations = {
       "High school with strong academic performance, especially in science and mathematics.",
     resume_experience: "Experience",
     exp_1_title: "Head of Internal Department, HMIK Pertamina University",
-    exp_1_year: "February 2025 — Present",
+    exp_1_year: "December 2024 — November 2025",
     exp_1_desc:
       "Led a team to organize internal agendas, monitor division performance, and build a collaborative and productive work culture within the organization.",
     exp_2_title: "Teaching Assistant for Object Oriented Programming Java",
-    exp_2_year: "February 2025 — Present",
+    exp_2_year: "February 2025 — July 2025",
     exp_2_desc:
       "Responsible for explaining material, helping solve practical problems, and objectively evaluating student assignments and projects.",
     exp_3_title: "Member of Indonesia-Meher-Woirata Translation Committee",
@@ -176,6 +180,10 @@ const translations = {
     exp_4_year: "April 2021 — April 2022",
     exp_4_desc:
       "Led the student organization, coordinated school events, and bridged communication between students and school administration.",
+    exp_5_title: "Teaching Assistant for Machine Learning",
+    exp_5_year: "February 2026 — July 2026",
+    exp_5_desc:
+      "Responsible for explaining material, helping solve practical problems, and objectively evaluating student assignments and projects.",
     resume_techstack: "Tech Stack",
 
     // PORTFOLIO
@@ -294,10 +302,10 @@ for (let i = 0; i < testimonialsItem.length; i++) {
     modalImg.src = this.querySelector("[data-testimonials-avatar]").src;
     modalImg.alt = this.querySelector("[data-testimonials-avatar]").alt;
     modalTitle.innerHTML = this.querySelector(
-      "[data-testimonials-title]"
+      "[data-testimonials-title]",
     ).innerHTML;
     modalText.innerHTML = this.querySelector(
-      "[data-testimonials-text]"
+      "[data-testimonials-text]",
     ).innerHTML;
 
     testimonialsModalFunc();
@@ -660,11 +668,11 @@ if (whatsappForm) {
 // PORTFOLIO DETAIL FUNCTIONALITY
 const portfolioLinks = document.querySelectorAll(".project-item > a");
 const portfolioDetailTab = document.querySelector(
-  '[data-page="portfolio-detail"]'
+  '[data-page="portfolio-detail"]',
 );
 const portfolioDetailTitle = document.getElementById("portfolio-detail-title");
 const portfolioDetailContent = document.getElementById(
-  "portfolio-detail-content"
+  "portfolio-detail-content",
 );
 const backToPortfolioBtn = document.getElementById("back-to-portfolio");
 const portfolioTab = document.querySelector('[data-page="portfolio"]');
@@ -678,7 +686,7 @@ let currentPortfolioUrl = null;
 function updatePortfolioDetailLanguage() {
   // Cek apakah halaman portfolio detail sedang aktif
   const portfolioDetailPage = document.querySelector(
-    '[data-page="portfolio-detail"]'
+    '[data-page="portfolio-detail"]',
   );
   if (
     portfolioDetailPage &&
@@ -707,7 +715,7 @@ function updatePortfolioDetailLanguage() {
 
       // Update features
       const featuresList = document.getElementById(
-        "portfolio-detail-features-list"
+        "portfolio-detail-features-list",
       );
       featuresList.innerHTML = data.features
         .map((feature) => `<li>${feature}</li>`)
@@ -764,7 +772,7 @@ function initializePortfolioLinks(links) {
           title,
           category,
           imageUrl,
-          projectUrl
+          projectUrl,
         );
       }
 
@@ -1449,7 +1457,7 @@ function showPortfolioDetail(portfolioInfo, projectUrl) {
 
   // Update features
   const featuresList = document.getElementById(
-    "portfolio-detail-features-list"
+    "portfolio-detail-features-list",
   );
   featuresList.innerHTML = data.features
     .map((feature) => `<li>${feature}</li>`)
