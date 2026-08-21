@@ -20,7 +20,7 @@ const translations = {
   id: {
     // ABOUT
     about_title: "Tentang saya",
-    about_text: `Mahasiswa Ilmu Komputer dengan pengalaman dalam pengembangan aplikasi web dan sistem berbasis AI, serta riset terkait algoritma dan pengolahan data. Mampu membangun website dengan PHP, Python dan menerapkan konsep machine learning dalam studi kasus nyata. Berkomitmen untuk terus mengasah keterampilan dalam Web Development, Machine Learning, dan Cybersecurity guna berkontribusi dalam menciptakan sistem yang aman, efisien, dan berdampak luas di dunia profesional.`,
+    about_text: `Lulusan Ilmu Komputer yang memiliki minat besar di bidang Data Science, Machine Learning, Artificial Intelligence (AI), dan Data Analytics. Berkomitmen untuk mengolah data menjadi insight yang bernilai serta menyelesaikan permasalahan nyata melalui pendekatan berbasis data. Memiliki dasar yang kuat dalam Python, SQL, machine learning, dan visualisasi data, didukung dengan kemampuan berpikir analitis, pemecahan masalah, serta kolaborasi yang baik. Antusias untuk berkontribusi dalam pengembangan solusi cerdas, bekerja sama dengan tim yang beragam, dan terus berkembang sebagai profesional di bidang data guna menciptakan dampak yang bermakna melalui pemanfaatan data.`,
     service_title: "Bidang Minat",
     service_cyber_title: "Keamanan Siber",
     service_cyber_text:
@@ -50,35 +50,35 @@ const translations = {
     resume_title: "Resume",
     resume_education: "Pendidikan",
     edu_1_title: "Universitas Pertamina",
-    edu_1_year: "2022 — Sekarang",
+    edu_1_year: "2022 — 2026",
     edu_1_desc:
-      "Mahasiswa Ilmu Komputer yang fokus pada pemrograman, pengembangan perangkat lunak, dan keamanan siber.",
+      "Lulusan Ilmu Komputer dengan fokus pada Data Science, Data Analytics, Artificial Intelligence (AI), dan Machine Learning (ML).",
     edu_2_title: "SMAN 7 Maluku Barat Daya",
     edu_2_year: "2019 — 2022",
     edu_2_desc:
-      "Sekolah menengah dengan kinerja akademis yang kuat, terutama dalam mata pelajaran sains dan matematika.",
+      "Sekolah menengah atas dengan kinerja akademis yang kuat, terutama dalam mata pelajaran sains dan matematika.",
 
     resume_experience: "Pengalaman",
     exp_1_title: "Kepala Departemen Internal HMIK Universitas Pertamina",
-    exp_1_year: "December 2024 — November 2025",
+    exp_1_year: "Desember 2024 — Desember 2025",
     exp_1_desc:
-      "Memimpin tim dalam menyusun agenda internal himpunan, monitoring kinerja divisi, dan membangun kultur kerja yang kolaboratif dan produktif di lingkungan organisasi.",
-    exp_2_title: "Asisten Praktikum Object Oriented Programming Java",
+      "Memimpin Departemen Internal dengan mengoordinasikan program kerja internal, memperkuat komunikasi dan kolaborasi antaranggota, mengelola kegiatan organisasi, serta menciptakan lingkungan kerja tim yang produktif dan suportif.",
+    exp_2_title: "Asisten Laboratorium Pemrograman Berorientasi Objek (Java)",
     exp_2_year: "Februari 2025 — Juli 2025",
     exp_2_desc:
-      "Bertanggung jawab dalam memberikan penjelasan materi, membantu menyelesaikan permasalahan praktikum, serta mengevaluasi tugas dan proyek mahasiswa secara objektif.",
-    exp_3_title: "Anggota Komite Penerjemah Indonesia-Meher-Woirata",
-    exp_3_year: "Juli 2022 — Sekarang",
+      "Membantu pelaksanaan praktikum Pemrograman Berorientasi Objek (Java) dengan membimbing mahasiswa dalam menerapkan konsep-konsep OOP, melakukan debugging kode, dan mengembangkan aplikasi berbasis Java. Memberikan dukungan teknis, menilai tugas praktikum, serta memperkuat pemahaman mahasiswa terhadap praktik terbaik dalam pemrograman.",
+    exp_3_title: "Koordinator Komite Penerjemahan (Yotowawa Media Center)",
+    exp_3_year: "Juli 2022 — September 2022",
     exp_3_desc:
-      "Bergabung sebagai anggota komite penerjemah untuk membantu dalam pembuatan kamus digital untuk bahasa Meher dan Woirata.",
+      "Mengoordinasikan Komite Penerjemahan dengan mengelola kegiatan penerjemahan serta mendukung relawan dalam menerjemahkan dokumen, artikel, dan materi edukasi antara bahasa Indonesia, Meher, dan Woirata. Memastikan kualitas hasil terjemahan melalui akurasi, konsistensi, dan kolaborasi yang efektif di dalam tim.",
     exp_4_title: "Ketua OSIS SMAN 7 Maluku Barat Daya",
-    exp_4_year: "April 2021 — April 2022",
+    exp_4_year: "April 2021 — Februari 2022",
     exp_4_desc:
       "Memimpin organisasi siswa, mengoordinasikan acara sekolah, dan menjembatani komunikasi antara siswa dan administrasi sekolah.",
-    exp_5_title: "Asisten Praktikum Pembejaran Mesin",
+    exp_5_title: "Asisten Laboratorium Machine Learning",
     exp_5_year: "Februari 2026 — Juli 2026",
     exp_5_desc:
-      "Bertanggung jawab dalam memberikan penjelasan materi, membantu menyelesaikan permasalahan praktikum, serta mengevaluasi tugas dan proyek mahasiswa secara objektif.",
+      "Membantu pelaksanaan praktikum Machine Learning dengan membimbing mahasiswa dalam proses prapemrosesan data, pengembangan model, dan evaluasi performa menggunakan Python dan Scikit-learn. Memberikan dukungan teknis, menilai tugas praktikum, serta membantu memperkuat pemahaman mahasiswa terhadap konsep dasar dan praktik terbaik Machine Learning.",
     resume_techstack: "Teknologi",
 
     // PORTFOLIO
@@ -127,7 +127,7 @@ const translations = {
   en: {
     // ABOUT
     about_title: "About me",
-    about_text: `Computer Science student with experience in web application and AI-based system development, as well as research related to algorithms and data processing. Able to build websites using PHP, Python, and apply machine learning concepts to real-world cases. Committed to continuously improving skills in Web Development, Machine Learning, and Cybersecurity to contribute to creating secure, efficient, and impactful systems in the professional world.`,
+    about_text: `Computer Science graduate with a strong passion for Data Science, Machine Learning, Artificial Intelligence, and Data Analytics. Dedicated to transforming data into actionable insights and solving real-world problems through data-driven approaches. Equipped with a solid foundation in Python, SQL, machine learning, and data visualization, along with strong analytical thinking, problem-solving, and collaboration skills. Eager to contribute to building intelligent solutions, work with diverse teams, and continuously grow as a data professional while creating meaningful impact through data.`,
     service_title: "Fields of Interest",
     service_cyber_title: "Cyber Security",
     service_cyber_text:
@@ -156,34 +156,35 @@ const translations = {
     resume_title: "Resume",
     resume_education: "Education",
     edu_1_title: "Pertamina University",
-    edu_1_year: "2022 — Present",
+    edu_1_year: "2022 — 2026",
     edu_1_desc:
-      "Computer Science student focusing on programming, software development, and cybersecurity.",
+      "Bachelor of Computer Science with a focus on Data Science, Data Analytics, Artificial Intelligence (AI), and Machine Learning (ML).",
     edu_2_title: "SMAN 7 Maluku Barat Daya",
     edu_2_year: "2019 — 2022",
     edu_2_desc:
       "High school with strong academic performance, especially in science and mathematics.",
     resume_experience: "Experience",
     exp_1_title: "Head of Internal Department, HMIK Pertamina University",
-    exp_1_year: "December 2024 — November 2025",
+    exp_1_year: "December 2024 — December 2025",
     exp_1_desc:
-      "Led a team to organize internal agendas, monitor division performance, and build a collaborative and productive work culture within the organization.",
-    exp_2_title: "Teaching Assistant for Object Oriented Programming Java",
+      "Led the Internal Affairs Department by coordinating internal programs, strengthening communication and collaboration among members, organizing organizational activities, and fostering a productive and supportive team environment.",
+    exp_2_title:
+      "Object-Oriented Programming (Java) Laboratory Teaching Assistant",
     exp_2_year: "February 2025 — July 2025",
     exp_2_desc:
-      "Responsible for explaining material, helping solve practical problems, and objectively evaluating student assignments and projects.",
-    exp_3_title: "Member of Indonesia-Meher-Woirata Translation Committee",
-    exp_3_year: "July 2022 — Present",
+      "Assisted in delivering Object-Oriented Programming (Java) laboratory sessions by guiding students in implementing core OOP concepts, debugging code, and developing Java applications. Provided technical support, evaluated practical assignments, and reinforced programming best practices.",
+    exp_3_title: "Translation Committee Coordinator (Yotowawa Media Center)",
+    exp_3_year: "July 2022 — September 2022",
     exp_3_desc:
-      "Joined the translation committee to help develop a digital dictionary for the Meher and Woirata languages.",
+      "Coordinated the Translation Committee by managing translation activities and supporting volunteers in translating documents, articles, and educational materials between Indonesian, Meher, and Woirata. Ensured translation quality through accuracy, consistency, and effective collaboration within the team.",
     exp_4_title: "Student Council President, SMAN 7 Maluku Barat Daya",
-    exp_4_year: "April 2021 — April 2022",
+    exp_4_year: "April 2021 — February 2022",
     exp_4_desc:
       "Led the student organization, coordinated school events, and bridged communication between students and school administration.",
-    exp_5_title: "Teaching Assistant for Machine Learning",
+    exp_5_title: "Machine Learning Laboratory Teaching Assistant",
     exp_5_year: "February 2026 — July 2026",
     exp_5_desc:
-      "Responsible for explaining material, helping solve practical problems, and objectively evaluating student assignments and projects.",
+      "Assisted in delivering Machine Learning laboratory sessions by guiding students through data preprocessing, model development, and performance evaluation using Python and Scikit-learn. Provided technical support, evaluated practical assignments, and helped students strengthen their understanding of core machine learning concepts and best practices.",
     resume_techstack: "Tech Stack",
 
     // PORTFOLIO
@@ -463,7 +464,7 @@ const blogData = [
 
               <p>Proyek ini bukan hal yang mudah. Minimnya dokumentasi membuat kami benar-benar bergantung pada ingatan para tetua. Tapi justru dari keterbatasan itu, kami jadi lebih semangat. Dibantu juga oleh kepala desa, bahkan didukung oleh Kemdikbud dan Badan Bahasa, kami merasa kerja keras kami punya makna besar.</p>
 
-              <p>Dan kini, hasilnya mulai terlihat. Kami sudah berhasil mengumpulkan lebih dari 15.000 kosakata, lengkap dengan terjemahan otomatis Meher–Woirata–Indonesia, bahkan dilengkapi fitur audio. Meski belum sempurna, ini jadi langkah awal yang sangat berarti.</p>
+              <p>Dan kini, hasilnya mulai terlihat. Kami sudah berhasil mengumpulkan lebih dari 15.000 kosakata, lengkap dengan terjemahan otomatis Meher-Woirata-Indonesia, bahkan dilengkapi fitur audio. Meski belum sempurna, ini jadi langkah awal yang sangat berarti.</p>
 
               <p>Jika teman-teman penasaran dan ingin melihat langsung hasil kerja kami, kunjungi website kamus digital bahasa Meher dan Woirata yang telah dibuat di <a href='https://www.yotowawa.com/' target="_blank" style="color: hsl(45, 100%, 72%);">www.yotowawa.com</a>. Semoga bisa menjadi jembatan untuk mengenal dan mencintai bahasa ibu kita bersama.</p>
 
