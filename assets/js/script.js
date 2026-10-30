@@ -784,6 +784,108 @@ function initializePortfolioLinks(links) {
 
 // Data portfolio dengan deskripsi lengkap
 const portfolioData = {
+  "judol-comment-classification": {
+    id: {
+      title: "Klasifikasi Komentar Judi Online pada YouTube",
+      category: "AI/ML",
+      description:
+        "Mengembangkan sistem klasifikasi teks berbasis Machine Learning untuk mendeteksi komentar YouTube yang mengandung promosi judi online. Proyek ini membandingkan beberapa algoritma klasifikasi untuk menentukan model yang paling efektif serta menerapkan simulasi moderasi komentar preventif guna mendukung lingkungan digital yang lebih aman.",
+      tech: [
+        "Python",
+        "Scikit-learn",
+        "Pandas",
+        "TF-IDF",
+        "Natural Language Processing (NLP)",
+        "Logistic Regression",
+        "Support Vector Machine (SVM)",
+        "Random Forest",
+      ],
+      features: [
+        "Klasifikasi Teks: Mengidentifikasi komentar yang mengandung promosi judi online dan komentar non-judi online.",
+        "Pemrosesan Teks: Menyiapkan dan mengubah teks komentar menjadi fitur numerik untuk kebutuhan pemodelan Machine Learning.",
+        "Perbandingan Model: Mengevaluasi Logistic Regression, Random Forest, dan SVM untuk menentukan model dengan performa terbaik.",
+        "Evaluasi Model: Menganalisis performa klasifikasi menggunakan metrik evaluasi yang relevan.",
+        "Simulasi Moderasi Preventif: Mendemonstrasikan proses identifikasi komentar yang terindikasi mempromosikan judi online untuk mendukung proses moderasi.",
+      ],
+      image: "./assets/images/project-17.png",
+      url: "https://github.com/gbennnn/judol-comment-classification",
+    },
+    en: {
+      title: "YouTube Online Gambling Comment Classification",
+      category: "AI/ML",
+      description:
+        "Developing a text classification system based on Machine Learning to detect YouTube comments containing online gambling promotions. This project compares several classification algorithms to determine the most effective model and implements a preventive comment moderation simulation to support a safer digital environment.",
+      tech: [
+        "Python",
+        "Scikit-learn",
+        "Pandas",
+        "TF-IDF",
+        "Natural Language Processing (NLP)",
+        "Logistic Regression",
+        "Support Vector Machine (SVM)",
+        "Random Forest",
+      ],
+      features: [
+        "Text Classification: Identifying comments that contain online gambling promotions and non-gambling comments.",
+        "Text Processing: Preparing and transforming comment text into numerical features for Machine Learning modeling.",
+        "Model Comparison: Evaluating Logistic Regression, Random Forest, and SVM to determine the model with the best performance.",
+        "Model Evaluation: Analyzing classification performance using relevant evaluation metrics.",
+        "Preventive Moderation Simulation: Demonstrating the process of identifying comments suspected of promoting online gambling to support moderation processes.",
+      ],
+      image: "./assets/images/project-17.png",
+      url: "https://github.com/gbennnn/judol-comment-classification",
+    },
+  },
+  "ai-powered-pdf-assessment": {
+    id: {
+      title: "AI-Powered PDF Assessment System",
+      category: "AI/ML",
+      description:
+        "Sistem penilaian otomatis untuk tugas mahasiswa dalam format PDF, menggunakan AI dan NLP untuk menganalisis kualitas jawaban, grammar, struktur, dan referensi, serta menghasilkan feedback dan nilai akhir secara efisien.",
+      tech: [
+        "Python",
+        "NLP",
+        "OpenAI API",
+        "Flask",
+        "PyMuPDF",
+        "HTML",
+        "Tailwind CSS",
+      ],
+      features: [
+        "Ekstraksi teks otomatis dari file PDF",
+        "Analisis grammar dan struktur jawaban",
+        "Kustomisasi parameter penilaian",
+        "Pencocokan makna jawaban dengan soal",
+        "Feedback otomatis dan laporan penilaian",
+      ],
+      image: "./assets/images/project-16.png",
+      url: "https://github.com/gbennnn/grader-ai",
+    },
+    en: {
+      title: "AI-Powered PDF Assessment System",
+      category: "AI/ML",
+      description:
+        "An automated assessment system for student assignments in PDF format, utilizing AI and NLP to analyze answer quality, grammar, structure, and references, while efficiently generating feedback and final grades.",
+      tech: [
+        "Python",
+        "NLP",
+        "OpenAI API",
+        "Flask",
+        "PyMuPDF",
+        "HTML",
+        "Tailwind CSS",
+      ],
+      features: [
+        "Automatic text extraction from PDF files",
+        "Grammar and structure analysis of answers",
+        "Customizable assessment parameters",
+        "Semantic matching of answers with questions",
+        "Automatic feedback and assessment reports",
+      ],
+      image: "./assets/images/project-16.png",
+      url: "https://github.com/gbennnn/grader-ai",
+    },
+  },
   "ai-powered-pdf-assessment": {
     id: {
       title: "AI-Powered PDF Assessment System",
@@ -1387,6 +1489,8 @@ function getPortfolioKey(title) {
   const cleanTitle = title.trim().replace(/\s+/g, " ");
 
   const mapping = {
+    "Klasifikasi Komentar Judi Online pada YouTube":
+      "judol-comment-classification",
     "AI-Powered PDF Assessment System": "ai-powered-pdf-assessment",
     "Sentiment Analysis on APERTI BUMN University Reviews":
       "sentiment-analysis",
