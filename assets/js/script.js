@@ -20,20 +20,20 @@ const translations = {
   id: {
     // ABOUT
     about_title: "Tentang saya",
-    about_text: `Lulusan Ilmu Komputer yang memiliki minat besar di bidang Data Science, Machine Learning, Artificial Intelligence (AI), dan Data Analytics. Berkomitmen untuk mengolah data menjadi insight yang bernilai serta menyelesaikan permasalahan nyata melalui pendekatan berbasis data. Memiliki dasar yang kuat dalam Python, SQL, machine learning, dan visualisasi data, didukung dengan kemampuan berpikir analitis, pemecahan masalah, serta kolaborasi yang baik. Antusias untuk berkontribusi dalam pengembangan solusi cerdas, bekerja sama dengan tim yang beragam, dan terus berkembang sebagai profesional di bidang data guna menciptakan dampak yang bermakna melalui pemanfaatan data.`,
+    about_text: `Lulusan Ilmu Komputer dengan minat kuat pada Data Science, Machine Learning, Artificial Intelligence, dan Data Analytics. Berkomitmen untuk mengolah data menjadi wawasan yang dapat ditindaklanjuti serta menyelesaikan permasalahan nyata melalui pendekatan berbasis data. Memiliki dasar yang kuat dalam Python, SQL, machine learning, dan visualisasi data, serta kemampuan berpikir analitis, pemecahan masalah, dan kolaborasi yang baik. Antusias untuk berkontribusi dalam pengembangan solusi cerdas, bekerja sama dengan berbagai tim, dan terus mengembangkan kompetensi di bidang data guna menghasilkan dampak yang bermakna.`,
     service_title: "Bidang Minat",
-    service_cyber_title: "Keamanan Siber",
-    service_cyber_text:
-      "Melindungi sistem dan data dari ancaman digital menggunakan teknologi keamanan canggih.",
-    service_web_title: "Pengembangan Web",
-    service_web_text:
-      "Membangun situs web yang modern dan aman yang disesuaikan dengan kebutuhan bisnis.",
-    service_mobile_title: "Aplikasi Mobile",
-    service_mobile_text:
-      "Mengembangkan aplikasi seluler yang fungsional dan intuitif untuk platform iOS dan Android.",
-    service_ai_title: "Kecerdasan Buatan",
+    service_data_title: "Data Science",
+    service_data_text:
+      "Mengeksplorasi data untuk menemukan pola, menghasilkan wawasan, dan mendukung pengambilan keputusan berbasis data.",
+    service_data_analytics_title: "Data Analytics & Visualization",
+    service_data_analytics_text:
+      "Mengubah data menjadi insight yang bermakna melalui analisis, eksplorasi, dan visualisasi untuk mendukung pengambilan keputusan.",
+    service_service_ml_title: "Machine Learning",
+    service_ml_text:
+      "Mengembangkan model prediktif menggunakan algoritma pembelajaran mesin untuk menyelesaikan berbagai permasalahan berbasis data.",
+    service_ai_title: "Artificial Intelligence",
     service_ai_text:
-      "Menerapkan kecerdasan buatan untuk menciptakan solusi cerdas dan otomatis.",
+      "Menerapkan teknologi kecerdasan buatan untuk membangun solusi cerdas, otomatis, dan adaptif terhadap berbagai kebutuhan.",
     testimonials_title: "Testimoni",
     testi_1:
       "Benony adalah pribadi yang rajin, selalu sigap dalam menyelesaikan tugas, dan cepat beradaptasi saat mempelajari hal baru. Ia juga mampu mengambil peran sebagai pemimpin, mengarahkan tim dengan baik, serta terbuka terhadap pendapat dan sudut pandang yang berbeda.",
@@ -129,18 +129,18 @@ const translations = {
     about_title: "About me",
     about_text: `Computer Science graduate with a strong passion for Data Science, Machine Learning, Artificial Intelligence, and Data Analytics. Dedicated to transforming data into actionable insights and solving real-world problems through data-driven approaches. Equipped with a solid foundation in Python, SQL, machine learning, and data visualization, along with strong analytical thinking, problem-solving, and collaboration skills. Eager to contribute to building intelligent solutions, work with diverse teams, and continuously grow as a data professional while creating meaningful impact through data.`,
     service_title: "Fields of Interest",
-    service_cyber_title: "Cyber Security",
-    service_cyber_text:
-      "Protecting systems and data from digital threats using advanced security technologies.",
-    service_web_title: "Web Development",
-    service_web_text:
-      "Building modern, secure, and responsive websites tailored to business and user needs.",
-    service_mobile_title: "Mobile Apps",
-    service_mobile_text:
-      "Developing functional and intuitive mobile applications for both iOS and Android platforms.",
+    service_data_title: "Data Science",
+    service_data_text:
+      "Exploring data to find patterns, generate insights, and support data-driven decision making.",
+    service_data_analytics_title: "Data Analytics & Visualization",
+    service_data_analytics_text:
+      "Transforming data into meaningful insights through analysis, exploration, and visualization to support decision-making.",
+    service_service_ml_title: "Machine Learning",
+    service_ml_text:
+      "Developing predictive models using machine learning algorithms to solve various data-driven problems.",
     service_ai_title: "Artificial Intelligence",
     service_ai_text:
-      "Applying artificial intelligence to create intelligent and automated solutions.",
+      "Applying artificial intelligence to create intelligent and automated solutions for various applications.",
     testimonials_title: "Testimonials",
     testi_1:
       "Benony is a diligent person, always quick to complete tasks, and adapts quickly when learning new things. He is also able to take on leadership roles, guide the team well, and is open to different opinions and perspectives.",
@@ -784,6 +784,108 @@ function initializePortfolioLinks(links) {
 
 // Data portfolio dengan deskripsi lengkap
 const portfolioData = {
+  "judol-comment-classification": {
+    id: {
+      title: "Klasifikasi Komentar Judi Online pada YouTube",
+      category: "AI/ML",
+      description:
+        "Mengembangkan sistem klasifikasi teks berbasis Machine Learning untuk mendeteksi komentar YouTube yang mengandung promosi judi online. Proyek ini membandingkan beberapa algoritma klasifikasi untuk menentukan model yang paling efektif serta menerapkan simulasi moderasi komentar preventif guna mendukung lingkungan digital yang lebih aman.",
+      tech: [
+        "Python",
+        "Scikit-learn",
+        "Pandas",
+        "TF-IDF",
+        "Natural Language Processing (NLP)",
+        "Logistic Regression",
+        "Support Vector Machine (SVM)",
+        "Random Forest",
+      ],
+      features: [
+        "Klasifikasi Teks: Mengidentifikasi komentar yang mengandung promosi judi online dan komentar non-judi online.",
+        "Pemrosesan Teks: Menyiapkan dan mengubah teks komentar menjadi fitur numerik untuk kebutuhan pemodelan Machine Learning.",
+        "Perbandingan Model: Mengevaluasi Logistic Regression, Random Forest, dan SVM untuk menentukan model dengan performa terbaik.",
+        "Evaluasi Model: Menganalisis performa klasifikasi menggunakan metrik evaluasi yang relevan.",
+        "Simulasi Moderasi Preventif: Mendemonstrasikan proses identifikasi komentar yang terindikasi mempromosikan judi online untuk mendukung proses moderasi.",
+      ],
+      image: "./assets/images/project-17.png",
+      url: "https://github.com/gbennnn/judol-comment-classification",
+    },
+    en: {
+      title: "YouTube Online Gambling Comment Classification",
+      category: "AI/ML",
+      description:
+        "Developing a text classification system based on Machine Learning to detect YouTube comments containing online gambling promotions. This project compares several classification algorithms to determine the most effective model and implements a preventive comment moderation simulation to support a safer digital environment.",
+      tech: [
+        "Python",
+        "Scikit-learn",
+        "Pandas",
+        "TF-IDF",
+        "Natural Language Processing (NLP)",
+        "Logistic Regression",
+        "Support Vector Machine (SVM)",
+        "Random Forest",
+      ],
+      features: [
+        "Text Classification: Identifying comments that contain online gambling promotions and non-gambling comments.",
+        "Text Processing: Preparing and transforming comment text into numerical features for Machine Learning modeling.",
+        "Model Comparison: Evaluating Logistic Regression, Random Forest, and SVM to determine the model with the best performance.",
+        "Model Evaluation: Analyzing classification performance using relevant evaluation metrics.",
+        "Preventive Moderation Simulation: Demonstrating the process of identifying comments suspected of promoting online gambling to support moderation processes.",
+      ],
+      image: "./assets/images/project-17.png",
+      url: "https://github.com/gbennnn/judol-comment-classification",
+    },
+  },
+  "ai-powered-pdf-assessment": {
+    id: {
+      title: "AI-Powered PDF Assessment System",
+      category: "AI/ML",
+      description:
+        "Sistem penilaian otomatis untuk tugas mahasiswa dalam format PDF, menggunakan AI dan NLP untuk menganalisis kualitas jawaban, grammar, struktur, dan referensi, serta menghasilkan feedback dan nilai akhir secara efisien.",
+      tech: [
+        "Python",
+        "NLP",
+        "OpenAI API",
+        "Flask",
+        "PyMuPDF",
+        "HTML",
+        "Tailwind CSS",
+      ],
+      features: [
+        "Ekstraksi teks otomatis dari file PDF",
+        "Analisis grammar dan struktur jawaban",
+        "Kustomisasi parameter penilaian",
+        "Pencocokan makna jawaban dengan soal",
+        "Feedback otomatis dan laporan penilaian",
+      ],
+      image: "./assets/images/project-16.png",
+      url: "https://github.com/gbennnn/grader-ai",
+    },
+    en: {
+      title: "AI-Powered PDF Assessment System",
+      category: "AI/ML",
+      description:
+        "An automated assessment system for student assignments in PDF format, utilizing AI and NLP to analyze answer quality, grammar, structure, and references, while efficiently generating feedback and final grades.",
+      tech: [
+        "Python",
+        "NLP",
+        "OpenAI API",
+        "Flask",
+        "PyMuPDF",
+        "HTML",
+        "Tailwind CSS",
+      ],
+      features: [
+        "Automatic text extraction from PDF files",
+        "Grammar and structure analysis of answers",
+        "Customizable assessment parameters",
+        "Semantic matching of answers with questions",
+        "Automatic feedback and assessment reports",
+      ],
+      image: "./assets/images/project-16.png",
+      url: "https://github.com/gbennnn/grader-ai",
+    },
+  },
   "ai-powered-pdf-assessment": {
     id: {
       title: "AI-Powered PDF Assessment System",
@@ -1387,6 +1489,8 @@ function getPortfolioKey(title) {
   const cleanTitle = title.trim().replace(/\s+/g, " ");
 
   const mapping = {
+    "Klasifikasi Komentar Judi Online pada YouTube":
+      "judol-comment-classification",
     "AI-Powered PDF Assessment System": "ai-powered-pdf-assessment",
     "Sentiment Analysis on APERTI BUMN University Reviews":
       "sentiment-analysis",
