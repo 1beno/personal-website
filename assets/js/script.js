@@ -20,7 +20,7 @@ const translations = {
   id: {
     // ABOUT
     about_title: "Tentang saya",
-    about_text: `Lulusan Ilmu Komputer dengan minat kuat pada Data Science, Machine Learning, Artificial Intelligence, dan Data Analytics. Berkomitmen untuk mengolah data menjadi wawasan yang dapat ditindaklanjuti serta menyelesaikan permasalahan nyata melalui pendekatan berbasis data. Memiliki dasar yang kuat dalam Python, SQL, machine learning, dan visualisasi data, serta kemampuan berpikir analitis, pemecahan masalah, dan kolaborasi yang baik. Antusias untuk berkontribusi dalam pengembangan solusi cerdas, bekerja sama dengan berbagai tim, dan terus mengembangkan kompetensi di bidang data guna menghasilkan dampak yang bermakna.`,
+    about_text: `Lulusan Ilmu Komputer Universitas Pertamina dengan peminatan Data Science dan ketertarikan kuat pada pengembangan solusi berbasis data. Memiliki pengalaman dalam Data Analytics, Data Visualization, Data Cleaning, dan Data Modeling, serta terampil menggunakan Python untuk pengolahan data, analisis, dan pengembangan model Machine Learning. Didukung kemampuan berpikir analitis, pemecahan masalah, dan kolaborasi tim yang baik, serta berorientasi pada pembelajaran berkelanjutan dan penerapan teknologi untuk menghasilkan solusi yang efektif dan bernilai.`,
     service_title: "Bidang Minat",
     service_data_title: "Data Science",
     service_data_text:
@@ -127,7 +127,7 @@ const translations = {
   en: {
     // ABOUT
     about_title: "About me",
-    about_text: `Computer Science graduate with a strong passion for Data Science, Machine Learning, Artificial Intelligence, and Data Analytics. Dedicated to transforming data into actionable insights and solving real-world problems through data-driven approaches. Equipped with a solid foundation in Python, SQL, machine learning, and data visualization, along with strong analytical thinking, problem-solving, and collaboration skills. Eager to contribute to building intelligent solutions, work with diverse teams, and continuously grow as a data professional while creating meaningful impact through data.`,
+    about_text: `Computer Science graduate from Universitas Pertamina with a specialization in Data Science and a strong interest in developing data-driven solutions. Experienced in Data Analytics, Data Visualization, Data Cleaning, and Data Modeling, with proficiency in Python for data processing, analysis, and Machine Learning model development. Equipped with strong analytical thinking, problem-solving, and teamwork skills, with a continuous learning mindset and a commitment to leveraging technology to deliver effective, data-driven solutions.`,
     service_title: "Fields of Interest",
     service_data_title: "Data Science",
     service_data_text:
